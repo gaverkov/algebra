@@ -1,0 +1,156 @@
+
+\floatname{algorithm}{} % no names of algorithms
+\newcommand{\aff}{\operatorname{aff}}
+\newcommand{\bigsetcond}[2]{\bigl\{ #1 \,:\, #2 \bigr\}}
+\newcommand{\card}[1]{\left|#1\right|}
+\newcommand{\cc}[1]{\ccmd{#1}}
+\newcommand{\ccmd}[1]{\mathop{\text{\textsc{#1}}}}
+\newcommand{\ceil}[1]{\left\lceil#1\right\rceil}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\const}{\operatorname{const}}
+\newcommand{\conv}{\operatorname{conv}}
+\newcommand{\cX}{\mathcal{X}}
+\newcommand{\dotvar}{\,\cdot\,}
+\newcommand{\DP}{\operatorname{P}}
+\newcommand{\DTIME}{\operatorname{DTIME}}
+\newcommand{\enc}[1]{{\llcorner#1\lrcorner}}
+\newcommand{\Ende}{\ccmd{Ende}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\EXP}{\operatorname{EXP}}
+\newcommand{\false}{\cc{Falsch}}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newcommand{\Groesse}{\cc{Gr\"o{\ss}e}}
+\newcommand{\HALT}{\operatorname{HALT}}
+\newcommand{\INDSET}{\operatorname{INDSET}}
+\newcommand{\integer}{\mathbb{Z}}
+\newcommand{\intr}{\operatorname{int}}
+\newcommand{\Kopf}{\cc{Kopf}}
+\newcommand{\Laenge}{\ccmd{L\"ange}}
+\newcommand{\mo}[1]{\mathop{#1}}
+\newcommand{\modulo}[1]{\,(\rmcmd{mod}\, #1)}
+\newcommand{\natur}{\mathbb{N}}
+\newcommand{\negation}[1]{\overline{#1}}
+\newcommand{\NIL}{\cc{NIL}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\normalsetcond}[2]{\{ #1 \,:\, #2 \}}
+\newcommand{\NP}{\operatorname{NP}}
+\newcommand{\NPSPACE}{\operatorname{NPSPACE}}
+\newcommand{\NSPACE}{\operatorname{NSPACE}}
+\newcommand{\NTIME}{\operatorname{NTIME}}
+\newcommand{\Prob}[1]{\operatorname{P}\left( #1\right)}
+\newcommand{\PSPACE}{\operatorname{PSPACE}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\V}{\mathbf{V}}
+\newcommand{\rational}{\mathbb{Q}}
+\newcommand{\rc}[1]{\rmcmd{#1}}
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\relint}{\operatorname{relint}}
+\newcommand{\relintr}{\relint}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\rmcmd}[1]{\mathop{\mathrm{#1}}}
+\newcommand{\SAT}{\operatorname{SAT}}
+\newcommand{\seqcond}[2]{\left(#1\,:\,#2\right)}
+\newcommand{\setcond}[2]{\left\{ #1 \,:\, #2 \right\}}
+\newcommand{\sizetwocol}[2]{\left(\begin{smallmatrix} {#1} \\ {#2} \end{smallmatrix}\right)}
+\newcommand{\SPACE}{\operatorname{SPACE}}
+\newcommand{\sprod}[2]{\left<{#1}\,,\,{#2}\right>}
+\newcommand{\temp}{\mo{temp}}
+\newcommand{\term}[1]{\emph{#1}}
+\newcommand{\thmheader}[1]{{\upshape(#1).}}
+\newcommand{\THREESAT}{\operatorname{3SAT}}
+\newcommand{\Top}{\ccmd{top}}
+\newcommand{\true}{\cc{Wahr}}
+\newcommand{\twodots}{\mathbin{.\,.}}
+\newcommand{\vorlesung}[1]{\marginpar{\scriptsize \boxed{ VL\,#1}}}
+\newcommand{\xor}{\:\dot{\vee}\:}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\algorithmiccomment}[1]{$\Diamond$ \emph{#1}}
+\renewcommand{\algorithmiccomment}[1]{ $\rhd$\emph{ #1 }} % One can also use \lhd \rhd or \Diamond
+\renewcommand{\algorithmicdo}{\textbf{:}}
+\renewcommand{\algorithmicelse}{\textbf{else:}}
+\renewcommand{\algorithmicelsif}{\textbf{else if}}
+\renewcommand{\algorithmicendfor}{\algorithmicend}
+\renewcommand{\algorithmicendif}{\algorithmicend}
+\renewcommand{\algorithmicendloop}{\algorithmicend}
+\renewcommand{\algorithmicend}{\textbf{end}}
+\renewcommand{\algorithmicendwhile}{\algorithmicend}
+\renewcommand{\algorithmicensure}{\textbf{Result:}}
+\renewcommand{\algorithmicfalse}{\textbf{Falsch}}
+\renewcommand{\algorithmicforall}{\textbf{for all}}
+\renewcommand{\algorithmicfor}{\textbf{for}}
+\renewcommand{\algorithmicif}{\textbf{if}}
+\renewcommand{\algorithmicloop}{\textbf{loop:}}
+\renewcommand{\algorithmicprint}{\textbf{print:}}
+\renewcommand{\algorithmicrepeat}{\textbf{repeat:}}
+\renewcommand{\algorithmicrequire}{\textbf{Annahme:}}
+\renewcommand{\algorithmicensure}{\textbf{Ergebnis:}}
+\renewcommand{\algorithmicreturn}{\textbf{return}}
+\renewcommand{\algorithmicthen}{\textbf{:}}
+\renewcommand{\algorithmictrue}{\textbf{Wahr}}
+\renewcommand{\algorithmicuntil}{\textbf{until}}
+\renewcommand{\algorithmicwhile}{\textbf{while}}
+\renewcommand{\mod}{\rmcmd{mod}}
+\renewcommand{\mod}{\rmcmd{mod}}
+\renewcommand{\thealgorithm}{} % No numbering of algorithms
+
+\newcommand{\lin}{\operatorname{lin}}
+\newcommand{\ideal}[1]{\left< #1 \right>}
+\newcommand{\I}{\mathbf{I}}
+\newcommand{\LC}{\operatorname{LC}}
+\newcommand{\LT}{\operatorname{LT}}
+\newcommand{\LM}{\operatorname{LM}}
+\newcommand{\ggT}{\operatorname{ggT}}
+\newcommand{\lex}{{\operatorname{lex}}}
+\newcommand{\succlex}{\succ_\lex}
+\newcommand{\grlex}{{\operatorname{grlex}}}
+\newcommand{\succgrlex}{\succ_\grlex}
+\newcommand{\grevlex}{{\operatorname{grevlex}}}
+\newcommand{\succgrevlex}{\succ_\grevlex}
+\newcommand{\mdeg}{\operatorname{mdeg}}
+\newcommand{\rem}{\operatorname{Rem}}
+\newcommand{\syl}{\operatorname{Syl}}
+\newcommand{\res}{\operatorname{Res}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\mult}{\operatorname{mult}}
+\newcommand{\signvar}{\operatorname{signvar}}
+\newcommand{\tr}{\operatorname{tr}}
+
+\newcommand{\tg}{\Tilde{g}}
+\newcommand{\og}{\overline{g}}
+\newcommand{\oa}{\overline{a}}
+\newcommand{\tG}{\Tilde{G}}
+\newcommand{\ux}{\underline{x}}
+\newcommand{\ug}{\underline{g}}
+\newcommand{\uS}{\underline{S}}
+\newcommand{\uA}{\underline{A}}
+
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\cJ}{\mathcal{J}} 
+\newcommand{\cV}{\mathcal{V}}
+
+\newcommand{\VR}{\operatorname{\mathcal{VR}}}
+\newcommand{\RI}{\operatorname{\mathcal{RI}}}
+
+\newcommand{\vol}{\operatorname{vol}} 
+
+\swapnumbers
+\newtheorem{theorem}{Theorem}[subsection]
+\newtheorem{corollary}[theorem]{Korollar}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{claim*}{Hilfsbehauptung}
+\newtheorem{claim}[theorem]{Hilfsbehauptung}
+\newtheorem{aufgabe}[theorem]{Aufgabe}
+\newtheorem{aufgaben}[theorem]{Aufgaben}
+\newtheorem{beispiel}[theorem]{Beispiel}
+\newtheorem{beispiele}[theorem]{Beispiele}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Bemerkung}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{beobachtung}[theorem]{Beobachtung}
