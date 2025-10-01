@@ -31,9 +31,18 @@ jobs:
         run: |
           cd skript
           latexmk -pdf -interaction=nonstopmode algebra.tex
-
-      - name: Upload PDF artifact
-        uses: actions/upload-artifact@v4
+          
+      - name: Create Release 
+        uses: softprops/action-gh-release@v1
         with:
-          name: algebra-pdf
-          path: skript/algebra.pdf
+          tag_name: ${{ github.ref }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload PDF
+        uses: softprops/action-gh-release@v1
+        with:
+          files: skript/algebra.pdf
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
