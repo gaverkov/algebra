@@ -24,6 +24,7 @@ jobs:
             texlive-fonts-recommended \
             texlive-fonts-extra \
             texlive-science \
+            texlive-lang-german \
             latexmk
 
       - name: Compile algebra.tex
