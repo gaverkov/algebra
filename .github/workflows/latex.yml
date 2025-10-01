@@ -36,4 +36,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: algebra-pdf
-          path: skripts/algebra.pdf
+          path: skript/algebra.pdf
