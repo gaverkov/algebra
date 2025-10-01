@@ -60,42 +60,57 @@
 \section*{Literaturquellen}
 
 \begin{itemize}
-	\item Cox, Little, O'Shea: Ideals, Varieties and Algorithms, An Introduction to Computational Algebraic Geometry and Commutative Algebra, 4th Edition, Springer. \emph{Das ist die Hauptquelle.  Eine äußerst freundliche Einleitung in Algebra und Algebraische Geometrie aus der modernen algorithmischen und angewandten Sicht. Die ersten 4 Kapitel (insgesamt 210 Seiten) sind die Vorlage für diesen Kurs . }
-	\item Shafarevich: Basic Notions of Algebra, Springer. \emph{Eine sehr schöne untechnische Übersicht verschiedener Themen aus Algebra und deren Anwendungen.}
-	\item Lang, Algebra, Revised Third Edition, Springer.  \emph{Klassisches theoretisches Werk (etwa 900 Seiten lang).} 
+	\item Cox, Little, O'Shea: \emph{Ideals, Varieties and Algorithms. An Introduction to Computational Algebraic Geometry and Commutative Algebra}, 4th Edition, Springer. \emph{Dies ist die Hauptquelle: eine äußerst zugängliche Einführung in Algebra und Algebraische Geometrie aus moderner algorithmischer und angewandter Sicht. Die ersten vier Kapitel (insgesamt ca. 210 Seiten) bilden die Grundlage für diesen Kurs.}
+	\item Shafarevich: \emph{Basic Notions of Algebra}, Springer. \emph{Eine sehr schöne, nichttechnische Übersicht verschiedener Themen der Algebra und ihrer Anwendungen.}
+	\item Lang: \emph{Algebra}, Revised Third Edition, Springer.  \emph{Ein klassisches theoretisches Werk (ca. 900 Seiten).} 
 \end{itemize} 
 
 \clearpage 
 
-Diesen Kurs kann man als eine nichtlineare Fortsetzung der linearen Algebra auffassen. Hier ist ein kurzer Überblick mit Parallelen dazu, was man in der linearen Algebra untersucht und was wir dementsprechend in der (nichtlinearen) Algebra untersuchen werden: 
+Diesen Kurs kann man als eine nichtlineare Fortsetzung der Linearen Algebra auffassen. Im Folgenden ein kurzer Überblick mit Parallelen zwischen Fragestellungen der Linearen Algebra und denen der (nichtlinearen) Algebra:
 
 \begin{center} 
-\begin{tabular}{l|l}
-	\textbf{Lineare Algebra \& } & \textbf{Nichtlineare Algebra \& }
-	\\  \textbf{Geometrie} & \textbf{Geometrie}
-	\\ \hline\hline Lineare Gleichungssysteme (LGS) & Polynomielle Gleichungsysteme (PGS)
-	\\ \hline Lösungsmengen von LGS & Lösungsmengen von PGS
-	\\ \hline Lineare Abbildungen  und & Polynomiale Abbildungen und 
-	\\ Funktionen & Funktionen 
-	\\ \hline Algorithmen:  & Algorithmen: 
-	\\ Gauß-Verfahren, Gramm-Schmidt & Gröbnerbasen-Algorithmen 
-	\\ \hline 
-	zahlreiche Anwendungen & zahlreiche Anwendungen 
-\end{tabular}  
+	\begin{tabular}{l|l}
+		\textbf{Lineare Algebra} & \textbf{Nichtlineare Algebra}
+		\\ \textbf{\& Geometrie} & \textbf{\& Geometrie} 
+		\\ \hline\hline 
+		Lineare  & Polynomiale 
+		\\ Gleichungssysteme (LGS) & Gleichungssysteme (PGS) 
+		\\ \hline 
+		Lösungsmengen von LGS & Lösungsmengen von PGS
+		\\ \hline 
+		Lineare Abbildungen  & Polynomiale Abbildungen
+		\\ und Funktionen &  und Funktionen 
+		\\ \hline 
+		Algorithmen: Gauß-Verfahren, Gramm–Schmidt & Algorithmen: Gröbnerbasen 
+		\\ \hline 
+		zahlreiche Anwendungen & zahlreiche Anwendungen 
+	\end{tabular}  
 \end{center} 
 
-Klassischerweise wird ein Großteil der linearen Agebra über einem beliebigen Körper $k$ entwickelt. Die bekanntesten konkreten Körper, für welche die lieare Algebra benutzt wird, sind dabei $\Q, \R, \C$ und $\F_p = \Z / p \Z$ für eine Primzahl $p$.  Für manche Ergebnisse aus der Linearen Algebra (Jordansche Normalform, Ergebnisse über die Diagonalisierung quadratischer Formen) braucht man jedoch Zusatzvoraussetzungen über den zugrundeliegenden Körper. Der gleiche Kommetnar gilt auch für diesen Kurs.
 
-Die Theorie kommutativer Ringe nennt man standardmäßig kommutative Algebra. Unsere Nichtlineare Algebra beinhaltet also die Basics der kommutativen Algebra, wobei wir -- um für Sie den Einstieg in Algebra zu erleichtern -- uns hauptsächlich mit dem konkreten Fall der Polynomringe befassen. Die Theorie der Mengen, die durch polynomielle Gleichungssysteme beschrieben sind, nennt man Algebraische Geometrie. Genauso wie die Lineare Algebra und die Geometrie dazu zusammengehören, gehören auch die kommutative Algebra und algebraische Geometrie zusammen.  Die algorithmische Theorie zu den beiden theoretischen Gebieten basiert auf den sogenannten Gröbnerbasen. Die kommutative Algebra, Algebraische Geometrie und die Gröbnerbasen wollen wir in diesem Kurs ansprechen, weil sie in vielen Hinsichten zusammengehören und sich gegenseitig beeinflussen: 
 
-Die drei Highlights, die wir als Meilensteine dieses Kurses bezeichnen können,  sind: 
+Die Lineare Algebra wird klassischerweise über einem beliebigen Körper $k$ entwickelt. Bekannte Beispiele sind die Körper $\Q, \R, \C$ und $\F_p = \Z / p \Z$ für eine Primzahl $p$. Für bestimmte Resultate (z.\,B. Jordansche Normalform, Diagonalisierung quadratischer Formen) sind jedoch zusätzliche Voraussetzungen an den Körper nötig. Dasselbe gilt auch für die Themen dieses Kurses. 
+
+Die Theorie kommutativer Ringe bezeichnet man standardmäßig als \emph{kommutative Algebra}. Unsere „Nichtlineare Algebra“ enthält daher die Grundlagen der kommutativen Algebra, wobei wir uns – um den Einstieg zu erleichtern – hauptsächlich auf den konkreten Fall der Polynomringe beschränken. Die Theorie der durch polynomielle Gleichungssysteme beschriebenen Mengen nennt man \emph{Algebraische Geometrie}. So wie Lineare Algebra und Geometrie eng verbunden sind, gehören auch kommutative Algebra und Algebraische Geometrie zusammen. Die algorithmische Seite dieser beiden Gebiete basiert auf den sogenannten Gröbnerbasen.  
+
+In diesem Kurs wollen wir daher kommutative Algebra, Algebraische Geometrie und Gröbnerbasen gemeinsam betrachten, da sie in vielen Hinsichten eng zusammenhängen und sich gegenseitig beeinflussen. 
+
+Die drei zentralen Meilensteine des Kurses sind:
 \begin{itemize}
-	\item Hilbertscher Basissatz %: Eine theoretische Erkenntnis aus der Theorie von Polynomringen.
-	\item Algorithmen zu Berechnung von Gröbnerbasen. % : ein algorithmisches Werkzeug für Berechnungen in Polynomringen.
-	\item Hilbertscher Nullstellensatz %: eine Verbindung zwischen der Algebra und algebraischen Geometrie. 
-\end{itemize} 
+	\item der \emph{Hilbertsche Basissatz}, 
+	\item die \emph{Algorithmen zur Berechnung von Gröbnerbasen}, 
+	\item der \emph{Hilbertsche Nullstellensatz}. 
+\end{itemize}  
 
-\clearpage 
+\subsection{Gruppen, Ringe oder Körper - womit am besten Anfangen?}
+
+
+Die abstrakte Algebra befasst sich mit einigen grundlegenden Strukturen: Gruppen, Ringen, Körpern, Vektorräumen und Modulen. Diese Gebiete sind eng miteinander verflochten. So führen Gruppen etwa zu Ringen (etwa über Gruppenringe), während in Ringen auf natürliche Weise Gruppen auftreten (etwa die Einheiten). Die Untersuchung von Vektorräumen bildet die lineare Algebra, während die Theorie der kommutativen Ringe und ihrer Module die kommutative Algebra ausmacht. Gruppentheorie dagegen widmet sich der Analyse von Symmetrie über Gruppen. Ein besonderer Fokus auf Ringe ist sinnvoll, weil Körper spezielle Ringe sind und Vektorräume als Module über Körpern verstanden werden können. Außerdem treten viele interessante Gruppen im Zusammenhang mit Ringen und Körpern auf, etwa Einheiten- oder Automorphismengruppen. Damit bilden Ringe eine Art Knotenpunkt, von dem sich zentrale Teilgebiete der Algebra erschließen.
+
+Die Theorie abstrakter algebraischer Strukturen kann zwar sehr abstrakt geführt werden, wird aber auf eine systematische Weise konkret, wenn man die Ringe der Polynome (in einer oder mehreren Variablen) einsetzt. Dabei wollen wir stets den Bezug zum Konkreten erhalten, sodass die abstrakten Konzepte anschaulich und nachvollziehbar bleiben.
+
+\clearpage
 
 \section{Algebra, Geometrie und Algorithmen} 
 
