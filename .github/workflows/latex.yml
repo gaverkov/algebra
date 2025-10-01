@@ -3,7 +3,7 @@ name: Build LaTeX PDF (manual install)
 on:
   push:
     paths:
-      - "skripts/algebra.tex"
+      - "skript/algebra.tex"
       - ".github/workflows/latex.yml"
   workflow_dispatch:
 
@@ -29,7 +29,7 @@ jobs:
 
       - name: Compile algebra.tex
         run: |
-          cd skripts
+          cd skript
           latexmk -pdf -interaction=nonstopmode algebra.tex
 
       - name: Upload PDF artifact
