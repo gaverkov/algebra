@@ -1,20 +1,21 @@
-name: Build LaTeX PDF (manual install)
+name: Build LaTeX PDF and Release
 
 on:
   push:
-    paths:
-      - "skript/algebra.tex"
-      - ".github/workflows/latex.yml"
-  workflow_dispatch:
+    tags:
+      - 'v*'   # Trigger on version tags like v1.0, v1.1
+  workflow_dispatch:  # Manual trigger if needed
 
 jobs:
-  build:
+  build-and-release:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 2️⃣ Install TeX Live and needed packages
       - name: Install TeX Live
         run: |
           sudo apt-get update
@@ -27,22 +28,24 @@ jobs:
             texlive-lang-german \
             latexmk
 
+      # 3️⃣ Compile the LaTeX file
       - name: Compile algebra.tex
         run: |
           cd skript
           latexmk -pdf -interaction=nonstopmode algebra.tex
-          
-      - name: Create Release 
+
+      # 4️⃣ Create GitHub release
+      - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ github.ref }}
+          tag_name: ${{ github.ref_name }}   # Use short tag name, e.g., v1.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload PDF
+      # 5️⃣ Upload PDF to release
+      - name: Upload PDF to Release
         uses: softprops/action-gh-release@v1
         with:
           files: skript/algebra.pdf
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
