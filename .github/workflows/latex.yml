@@ -1,51 +1,39 @@
-name: Build LaTeX PDF and Release
+name: pdf from latex generation
 
 on:
+  # Triggers the workflow on push or pull request events
   push:
-    tags:
-      - 'v*'   # Trigger on version tags like v1.0, v1.1
-  workflow_dispatch:  # Manual trigger if needed
-
+    branches: [ main ]  
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
+  # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  build-and-release:
+  # This workflow contains a single job called "generatePdfFromLatex"
+  generatePdfFromLatex:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  
+    steps: 
+    - id: UpdateAndInstallTexlive
+      run: "sudo apt update && sudo apt install make curl hub texlive-base texlive-latex-base texlive-latex-extra texlive-science texlive-xetex texlive-latex-recommended texlive-publishers texlive-pictures texlive-lang-german -y"
+    
+    - id: CloneRepo
+      run: "git clone https://github.com/gaverkov/algebra.git"
+      
+    - id: GeneratePdfFiles
+      working-directory: "algebra/skript/"
+      run: "make all"
 
-    steps:
-      # 1️⃣ Checkout repository
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      # 2️⃣ Install TeX Live and needed packages
-      - name: Install TeX Live
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y \
-            texlive-latex-base \
-            texlive-latex-extra \
-            texlive-fonts-recommended \
-            texlive-fonts-extra \
-            texlive-science \
-            texlive-lang-german \
-            latexmk
-
-      # 3️⃣ Compile the LaTeX file
-      - name: Compile algebra.tex
-        run: |
-          cd skript
-          latexmk -pdf -interaction=nonstopmode algebra.tex
-
-      # 4️⃣ Create GitHub release
-      - name: Create Release
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: ${{ github.ref_name }}   # Use short tag name, e.g., v1.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      # 5️⃣ Upload PDF to release
-      - name: Upload PDF to Release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: skript/algebra.pdf
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - id: CreateOrUpdateTag
+      working-directory: "algebra/skript/"
+      run: "commitid=$(git log --format='%H' -n 1) ; curl -X POST https://api.github.com/repos/gaverkov/algebra/git/refs/tags/Latest -H \"Authorization: token $GITHUB_TOKEN\" -d '{\"sha\":\"'$commitid'\"}'"
+      
+    - id: RemoveEventuallyExistingRelease
+      working-directory: "algebra/skript/"
+      run: "hub release delete Latest || true"
+     
+    - id: CreateReleaseAndUploadPdfFiles
+      working-directory: "algebra/skript/"
+      run: "releases=\"\"; for entry in *.pdf; do releases+=\" -a $entry#$(basename $entry)\"; done; hub release create $releases -m 'Lectures notes' Latest"
