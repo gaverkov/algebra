@@ -11,7 +11,7 @@ Prerequisites:
 
 ## Week 1. 
 
-Self-learning. Chapter~1, Paragraph~1 in Cox-Little-O'Shea. All of the exercises at the end of this paragraph. 
+Self-learning. Chapter 1, Paragraph 1 in Cox-Little-O'Shea. All of the exercises at the end of this paragraph. 
 
 
 
