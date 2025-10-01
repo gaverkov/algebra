@@ -28,7 +28,7 @@ jobs:
 
       - name: Compile algebra.tex
         run: |
-          cd skript
+          cd skripts
           latexmk -pdf -interaction=nonstopmode algebra.tex
 
       - name: Upload PDF artifact
