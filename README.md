@@ -20,7 +20,10 @@ Self-learning. Chapter 1, Paragraph 1 in Cox-Little-O'Shea. All of the exercises
 We introduced multivariate polynomials and had a few observations about them. 
 
 ## Week 3
-Lecture 1: We had an exercises class, which emerged by looking at polynomial interpolation and the definition of the ring. 
+We had an exercises class, which emerged by looking at polynomial interpolation and the definition of the ring. 
+
+## Week 4
+-- [B. Sturmfel's lecture: Elimination and implicitatization](https://www.math.uni-konstanz.de/~michalek/april24.pdf)
 
 ## General comments
 
