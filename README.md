@@ -25,6 +25,16 @@ We had an exercises class, which emerged by looking at polynomial interpolation 
 ## Week 4
 -- [B. Sturmfel's lecture: Elimination and implicitatization](https://www.math.uni-konstanz.de/~michalek/april24.pdf)
 
+## Week 5
+
+Ideals. 
+
+## Week 6
+
+[Week 06, lecture, board images](algebra_wise_25_26_week_06_1.pdf)
+
+
+
 ## General comments
 
 ### On mathematics
