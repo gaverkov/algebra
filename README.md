@@ -31,7 +31,8 @@ Ideals.
 
 ## Week 6
 
-[Week 06, lecture, board images](algebra_wise_25_26_week_06_1.pdf)
+- [Week 06, lecture 1, board images](algebra_wise_25_26_week_06_1.pdf)
+- [Week 06, lecture 2, board images](algebra_wise_25_26_week_06_2.pdf)
 
 
 
