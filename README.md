@@ -38,6 +38,35 @@ Ideals.
 - [Week 07, lecture 1, board images](algebra_wise_25_26_week_07_1.pdf)
 - [Week 07, lecture 2, board images](algebra_wise_25_26_week_07_2.pdf)
 
+This code highlights how the extended Euclidean algorithm works. 
+The non-extended Euclidean algorithm maintains a pair of numbers. 
+The numbers
+in the pair get smaller, but the gcd does not change. 
+The extended Euclidean algorithm does the same arithmetic
+operations as
+the non-extended Euclidean algorithm but attaches a linear equation to each 
+of the two numbers that are getting processsed. 
+So, in the loop of the extended Euclidean algorithm, one keeps the track
+of the two equations that are satisfied on the input 
+throughout the execution. In this SageMath implementation, 
+the equations are encoded through vectors:
+
+```python
+def extended_gcd(a,b):
+    f = vector([a,1,0]) 
+    # f[0]==f[1]*a+f[2]*b will stay true
+    g = vector([b,0,1]) 
+    # g[0]==g[1]*a+g[2]*b will stay true 
+    # gcd(f[0],f[1]) will stay the same 
+    while g[0]!=0:
+        q = f[0] // g[0]
+        f,g = g, f-q*g # degree of g drops - progress! 
+    return tuple(f)
+```
+
+
+
+
 
 
 ## General comments
