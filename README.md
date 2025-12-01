@@ -64,6 +64,17 @@ def extended_gcd(a,b):
     return tuple(f)
 ```
 
+Here the recursive implementation is of course less efficient due to the call stack overheads, but it is even shorter with the easy to track correctness. 
+
+```python
+def ext_eucl(a,b):
+    if b==0:
+        return a,1,0
+    q = a // b
+    g,u,v=ext_eucl(b,a-q*b)
+    return g,v,u-q*v
+```
+
 
 
 
