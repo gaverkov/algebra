@@ -87,22 +87,17 @@ def ext_eucl(a,b):
 
 ## General comments
 
-### On mathematics
-
-- A wrong definition is a definition that can be parsed but is not the same as the definition that was agreed upon. Non-Definition is a description that cannot be parsed. Your description of a ring is a non-definition if give a particular structure (R,+,.) it is not possible to decide from your description if it satisfies the properties you list or not.
-- A basic skill in math is to understand a question. For example consider a question: what is a ring? The answer is supposed to be a description that would allow one to distinguish between the structures that are rings and the structures that are no rings. Sometimes, gets an answer whose relation to the original question is not clear.
-
-### On computer science
-
-- If your computer science bachelor degree involved theory, it must have had mathematical induction (in my humble opinion). For a huge number of algorithms, induction is the way an algorithm emerges and the way to see its correctness. 
-
-### On linear algebra 
-
-- Many computational problems are actually problems from linear algebra: polynomial interpolation, different kinds of regression, principal component analysis, least-square approximation are all directly related to linear algebra.
-- Having a strong theoretical background in quantitative sciences is hardly possible without linear algebra (in my humble opinion)
-
-### Fitting a linear function to two datapoints 
-
- also known as the linear interpolation is a baby case of interpolation
+The comments are motivated by encounters with students who got their BSc in CS at different places of this world. 
+If you pick a random person across the word with a university BSc in CS, who graduated in the last 5 years, what expertise is this person supposed to have? 
+In my view the answer is: it's not clear at all. 
+Now, imagine a person with BSc in CS starts doing a MSc in some university of this word and some fancy area like data science, AI, cybersecurity etc.
+So, what assumptions can the teaching stuff make on the state of knowledge of the international students when offering their courses? 
+Not clear at all. 
 
 
+
+- Like in computer science you may have a non-code (does'not compile), an incorect code (doesn't do what one wants) and correct code, in mathematics one can have a non-definition, a wrong defition and a correct defintion, a non-theorem, a wrong theorem and a correct theorem. 
+- A basic scientific skill is to understand a question. It's hard to give solution without understanding what the question was. A way to understand written question is just to read it word by word and understand the meaning of each word.
+- Discrete math is a background for theoretical computer science. University CS degree have both theory and practice. Discrete math uses induction a lot. Analysis of algorithms is based on induction very often. Many reasons to learn induction. 
+- Many computational problems are actually problems from linear algebra: polynomial interpolation, different kinds of regression, principal component analysis, least-square approximation are all directly related to linear algebra. The list can be extended. So, with a CS degree it makes sense to have a knowledge in linear algebra. 
+  
