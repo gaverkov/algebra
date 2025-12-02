@@ -77,6 +77,11 @@ def ext_eucl(a,b):
 
 
 
+## Week 8
+- [Week 08, lecture 1, notes](algebra_wise_25_26_week_08_1.pdf)
+- [Week 08, lecture 2, notes](algebra_wise_25_26_week_08_2.pdf)
+
+[The English Wikipedia article on the Chinese Remainder Theorem](https://en.wikipedia.org/wiki/Chinese_remainder_theorem) provides interesting information, including connection to polynomial interpolation and various applications (including secrete sharing and signal processing). 
 
 
 
