@@ -88,8 +88,10 @@ def ext_eucl(a,b):
 ## General comments
 
 The comments are motivated by encounters with students who got their BSc in CS at different places of this world. 
-If you pick a random person across the word with a university BSc in CS, who graduated in the last 5 years, what expertise is this person supposed to have? 
-In my view the answer is: it's not clear at all. 
+If you pick a random person across the word with a university BSc degree in CS, who graduated in the last 5 years, what expertise is this person supposed to have? 
+In my view the answer is: it's not clear at all. The problem here is not that students do not know anything, but rather it is not 
+clear what common theoretical knowledge every CS graduate has independently of the institution in which the person graduated. 
+
 Now, imagine a person with BSc in CS starts doing a MSc in some university of this word and some fancy area like data science, AI, cybersecurity etc.
 So, what assumptions can the teaching stuff make on the state of knowledge of the international students when offering their courses? 
 Not clear at all. 
