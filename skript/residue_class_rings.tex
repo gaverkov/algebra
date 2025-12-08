@@ -375,7 +375,7 @@ With the above description, it can be immediately verified that, for $n \in \N$,
  The ideal $I = \langle x, y\rangle = x k[x,y] + y k[x,y]$ is maximal because it consists of all polynomials that are zero at $(0,0)$. In fact a polynomial being zero at $(0,0)$ has no constant term so that each term of it is divisible by $x$ or $y$. 
  
  If we enlarge this ideal it to  $I + g(x,y) k[x,y]$, where $g(0,0) \ne 0$, then we can write every polynomial $f(x,y)$ as $(f- \frac{f(0,0)}{g(0,0)} g) + \frac{f(0,0)}{g(0,0)} g$. So, $I + g(x,y) k[x,y] = k[x,y]$. Consequently, $I$ is a maximal idea. 
-
+ 
 \subsection{Maximal ideals and fields} $R/ I$ is a field if and only if the ideal $I$ is maximal. 
 
 \begin{proof}
@@ -383,6 +383,9 @@ With the above description, it can be immediately verified that, for $n \in \N$,
 	
 	Conversely, if $I$ is not maximal, then there exists an ideal $J$ that is strictly larger than $I$ but still a strict subset of $R$. Take an element in $J$ but not in $I$. Then $I + f R$ is a subset of $J$ and thus a strict subset of $R$. Hence, the ideals $I$ and $f R$ are not coprime. But this means that $[f]_I \ne 0$ and $[f]_I \not\in R^\times$. It follows that $R / I$ is not a field. 
 \end{proof} 
+
+ \subsection{Maximal ideals in $\R[x]$} Interestingly, maximal ideals in $\R[x]$ are in one-to-one correspondence with complexity numbers.  More precisely, every ideal $I\subseteq \R[x]$ can be uniquely written as $I = \{ f \in \R[x] \colon f(c) = 0\}$, where $c \in \C$. Thus, maximal ideals can be viewed as points. Generally, we every ring $R$ one can associate the set $\mathcal{M}$ of all its maximal ideals and consider elements of $R$ as functions over $\mathcal{M}$, for which the evaluation at $I \in \mathcal{M}$ is the operation $f \mapsto [f]_I$. The set of the maximal ideals is called the maximum spectrum of the ring. 
+
 
 \subsection{Application to the ring $\Z / n \Z$} Remember that for the $\Z$ the condition $m \Z + n \Z = \Z$ is equivalent to $\gcd(m,n)=1$, when $m,n \in \Z$. 
 
@@ -400,7 +403,7 @@ implies that $ \Z / n \Z$ is a field if and only if $n$ is prime number.
 
 \subsection{Another property of the Euler totient function} If $n= n_1 \cdots n_s$, where $n_1,\ldots,n_s$ are pairwise coprime, then $\phi(n) = \phi(n_1) \cdots \phi(n_s)$. This follows by application of the CRT and using the fact $(R_1 \times \cdots \times R_s)^\times = R_1^\times \times \cdots \times R_s^\times$, since by the Chinese Remainder theorem, 
 \[
-	\Z / n_1 \cdots n_s \Z \cong \Z / n_1 \Z \times \cdots \Z / n_s \Z. 
+	\Z / n_1 \cdots n_s \Z \cong \Z / n_1 \Z \times \cdots \times \Z / n_s \Z. 
 \]
 
 \subsection{Calculating the Euler totient function} By the above result, if we have a prime factorization $n = p_1^{m_1} \cdots p_s^{m_s}$ of $n \in \Z_{\ge 2}$ with multiplicities $m_1,\ldots, m_s \in \N$ and pairwise distinct primes $p_1,\ldots,p_s$, we obtian that 
