@@ -83,7 +83,10 @@ def ext_eucl(a,b):
 
 [The English Wikipedia article on the Chinese Remainder Theorem](https://en.wikipedia.org/wiki/Chinese_remainder_theorem) provides interesting information, including connection to polynomial interpolation and various applications (including secrete sharing and signal processing). 
 
+## Week 8
 
+- No board images for Week 09, lecture 1
+- [Week 09, lecture 2, board images](algebra_wise_25_26_2.pdf)
 
 ## General comments
 
