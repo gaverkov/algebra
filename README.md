@@ -88,6 +88,10 @@ def ext_eucl(a,b):
 - No board images for Week 09, lecture 1
 - [Week 09, lecture 2, board images](algebra_wise_25_26_week_09_2.pdf)
 
+## Week 10
+- [Week 10, lecture 1, board images](algebra_wise_25_26_week_10_1.pdf)
+- [Prime number theorem on Wikipedia.](https://en.wikipedia.org/wiki/Prime_number_theorem) We've discussed it in the context of the RSA and had an interesting discussion on best ways to find a prime number in a given range. 
+
 ## General comments
 
 The comments are motivated by encounters with students who got their BSc in CS at different places of this world. 
