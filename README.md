@@ -94,6 +94,21 @@ def ext_eucl(a,b):
 
 ## Week 11
 - [Week 11, lecture 1, board images](algebra_wise_25_26_week_11_1.pdf)
+- [Week 11, lecture 2, board images](algebra_wise_25_26_week_11_2.pdf)
+
+## Week 12
+
+- [Week 12, lecture 1, board images](algebra_wise_25_26_week_12_1.pdf)
+- We had a pre-exam instead of the lectures
+
+## Week 13
+
+- [Week 13, lecture 1, board images](algebra_wise_25_26_week_13_1.pdf)
+
+
+## Week 14
+
+## Week 15
 
 
 ## General comments
