@@ -31,12 +31,12 @@ Ideals.
 
 ## Week 6
 
-- [Week 06, lecture 1, board images](algebra_wise_25_26_week_06_1.pdf)
-- [Week 06, lecture 2, board images](algebra_wise_25_26_week_06_2.pdf)
+- [Week 06, lecture 1, board images](notizen/wise_25_26/algebra_wise_25_26_week_06_1.pdf)
+- [Week 06, lecture 2, board images](notizen/wise_25_26/algebra_wise_25_26_week_06_2.pdf)
 
 ## Week 7
-- [Week 07, lecture 1, board images](algebra_wise_25_26_week_07_1.pdf)
-- [Week 07, lecture 2, board images](algebra_wise_25_26_week_07_2.pdf)
+- [Week 07, lecture 1, board images](notizen/wise_25_26/algebra_wise_25_26_week_07_1.pdf)
+- [Week 07, lecture 2, board images](notizen/wise_25_26/algebra_wise_25_26_week_07_2.pdf)
 
 This code highlights how the extended Euclidean algorithm works. 
 The non-extended Euclidean algorithm maintains a pair of numbers. 
@@ -78,32 +78,33 @@ def ext_eucl(a,b):
 
 
 ## Week 8
-- [Week 08, lecture 1, notes](algebra_wise_25_26_week_08_1.pdf)
-- [Week 08, lecture 2, notes](algebra_wise_25_26_week_08_2.pdf)
+- [Week 08, lecture 1, notes](notizen/wise_25_26/algebra_wise_25_26_week_08_1.pdf)
+- [Week 08, lecture 2, notes](notizen/wise_25_26/algebra_wise_25_26_week_08_2.pdf)
 
 [The English Wikipedia article on the Chinese Remainder Theorem](https://en.wikipedia.org/wiki/Chinese_remainder_theorem) provides interesting information, including connection to polynomial interpolation and various applications (including secrete sharing and signal processing). 
 
 ## Week 9
 
 - No board images for Week 09, lecture 1
-- [Week 09, lecture 2, board images](algebra_wise_25_26_week_09_2.pdf)
+- [Week 09, lecture 2, board images](notizen/wise_25_26/algebra_wise_25_26_week_09_2.pdf)
 
 ## Week 10
-- [Week 10, lecture 1, board images](algebra_wise_25_26_week_10_1.pdf)
+- [Week 10, lecture 1, board images](notizen/wise_25_26/algebra_wise_25_26_week_10_1.pdf)
 - [Prime number theorem on Wikipedia.](https://en.wikipedia.org/wiki/Prime_number_theorem) We've discussed it in the context of the RSA and had an interesting discussion on best ways to find a prime number in a given range.
 
 ## Week 11
-- [Week 11, lecture 1, board images](algebra_wise_25_26_week_11_1.pdf)
-- [Week 11, lecture 2, board images](algebra_wise_25_26_week_11_2.pdf)
+- [Week 11, lecture 1, board images](notizen/wise_25_26/algebra_wise_25_26_week_11_1.pdf)
+- [Week 11, lecture 2, board images](notizen/wise_25_26/algebra_wise_25_26_week_11_2.pdf)
 
 ## Week 12
 
-- [Week 12, lecture 1, board images](algebra_wise_25_26_week_12_1.pdf)
+- [Week 12, lecture 1, board images](notizen/wise_25_26/algebra_wise_25_26_week_12_1.pdf)
 - We had a pre-exam instead of the lectures
 
 ## Week 13
 
-- [Week 13, lecture 1, board images](algebra_wise_25_26_week_13_1.pdf)
+- [Week 13, lecture 1, board images](notizen/wise_25_26/algebra_wise_25_26_week_13_1.pdf)
+- [Week 13, lecture 1, board images](notizen/wise_25_26/algebra_wise_25_26_week_13_2.pdf)
 
 
 ## Week 14
