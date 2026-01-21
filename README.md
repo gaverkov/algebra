@@ -4,10 +4,35 @@
 
 Module description: https://www.b-tu.de/modul/13911
 
-Prerequisites: 
-- linear algebra
-- mathematics with proofs
-- basic algorithmic knowledge
+Prerequisites for the course. Basically, that is a wish list or a nice-to-have list for certain skills and some background knowledge. 
+
+General math abilities: 
+- Understand what one says or writes. For example, you say: f is a ring homomorphism. If you say that, probably you know what you mean by a ring and what you mean by homomorphism. 
+- Make statements whose truth value is definite (either true or false). That means parseable statements. That means statements in which the meaning of its the words is clear without guessing. That means, a statement which has a subject and a predicate, whose meaning is clear without guessing. 
+- Make well-defined statements/definitions. For example, assume, you say: I consider *the* function f with the property P. If you say *the*, that means you probably know why such a function exists and why it is unique.
+- Write formulas that can be parsed. 
+- Make and use formal definitions. Say, you define a property P and then say that object A definitely has property P, whereas the object B definitely does not have the property P.
+- Build parseable reasoning chains, like A implies B, B implies C, C implies D.
+- Reason without gaps. A gap means that you use something in your reasoning, for which you don't know any reasons why it is true. The reasons why things are true could be: you've checked it yourself or (in the case you reasoning depends on the trust in other sources) someone else whom you trust has checked that (maybe, the lecturer or the author of a book). 
+- Reason by induction (this also helps in programming)
+- Reason by contradiction, reason using the contra position.
+- Reason in an abstract fashion. That means, reasoning at a certain level of abstraction, say, for general sets, or general algebraic structure.
+- Go through the arguments written down by the others in a critical way. For example, the lecturer makes a mistake and you can spot it. Yes, lecturers do make mistakes (at least, once in a while)! And in books, too, there are sometimes mistakes. Another example: ability to spot the mistakes in the output of AI systems (like ChatGPT). In their nature, AI systems immitate the stuff on which they have been trained. So, their answers to math questions are quite often wrong, because those systems do not bother about the truth. They bother about having seen something like that in a test test or not.
+- Understand the question asked by someone.
+- Ask own questions. 
+
+General computer-science abilities: 
+- Understand the code by reading it, without doing testing. That's also called code review.
+- Confirm or disprove the finite termination of the code. That is, experience with figuring out why a particular code does terminate or why some particular code does not terminate.
+- Analyze resources (time and memory) required for the executation of the code.
+- Analyze the correctness of the code without doing testing (just by reasoning)
+
+Specific math knowledge: 
+- Knowing basic algebraic structures like a field.
+- Linear algebra: Vector spaces, vector subspaces, basis, dimension.
+- Linear algebra: linear map, rank nullity theorem, kernel, image
+- The notion of derivative and partial derivative
+
 
 # WiSe 25/26
 
@@ -112,21 +137,3 @@ def ext_eucl(a,b):
 ## Week 15
 
 
-## General comments
-
-The comments are motivated by encounters with students who got their BSc in CS at different places of this world. 
-If you pick a random person across the word with a university BSc degree in CS, who graduated in the last 5 years, what expertise is this person supposed to have? 
-In my view the answer is: it's not clear at all. The problem here is not that students do not know anything, but rather it is not 
-clear what common theoretical knowledge every CS graduate has independently of the institution in which the person graduated. 
-
-Now, imagine a person with BSc in CS starts doing a MSc in some university of this word and some fancy area like data science, AI, cybersecurity etc.
-So, what assumptions can the teaching stuff make on the state of knowledge of the international students when offering their courses? 
-Not clear at all. 
-
-
-
-- Like in computer science you may have a non-code (does'not compile), an incorect code (doesn't do what one wants) and correct code, in mathematics one can have a non-definition, a wrong defition and a correct defintion, a non-theorem, a wrong theorem and a correct theorem. 
-- A basic scientific skill is to understand a question. It's hard to give solution without understanding what the question was. A way to understand written question is just to read it word by word and understand the meaning of each word.
-- Discrete math is a background for theoretical computer science. University CS degree have both theory and practice. Discrete math uses induction a lot. Analysis of algorithms is based on induction very often. Many reasons to learn induction. 
-- Many computational problems are actually problems from linear algebra: polynomial interpolation, different kinds of regression, principal component analysis, least-square approximation are all directly related to linear algebra. The list can be extended. So, with a CS degree it makes sense to have a knowledge in linear algebra. 
-  
