@@ -134,6 +134,67 @@ def ext_eucl(a,b):
 
 ## Week 14
 
+This week, we've played with Groebner bases in SageMath. In particular, we generated this code:
+
+```python
+R = PolynomialRing(QQ,'x,y',order='lex')
+x,y = R.gens()
+f = x^2 - x*y + 2*y^2 - 4
+g = y^2 - x^2*(x+1) + x*y
+
+pf= implicit_plot(f,(x,-3,3),(y,-3,3),color='red')
+pg= implicit_plot(g,(x,-3,3),(y,-3,3),color='blue')
+
+I = R.ideal(f,g)
+
+G = I.groebner_basis()
+
+print(f"f={f} (curve plotted in red)")
+print(f"g={g} (curve plotted in blue)")
+
+show(pf+pg)
+
+print("Our ideal is this:")
+print(I)
+
+print("""The Groebner basis wrt 
+to the lex order of this idea is this:""")
+print(G)
+
+h = G[-1]
+print("""We care about this polynomial
+because it depends only on y:
+""")
+print(h)
+
+ph= implicit_plot(h,(x,-3,3),(y,-3,3),color='orange')
+show(pf+pg+ph)
+
+pg0=implicit_plot(G[0],(x,-3,3),(y,-3,3),color='green')
+pg1=implicit_plot(G[1],(x,-3,3),(y,-3,3),color='violet')
+pg2=implicit_plot(G[2],(x,-3,3),(y,-3,3),color='orange')
+
+
+show(pg0+pg1+pg2)
+
+#print("""The first polynomial in the Groebner basis""")
+#print(G[0])
+#print(G[0](-1,2))
+
+
+#plot3d(G[0],(x,-2,0),(y,0,2))+plot3d(0,(x,-2,0),(y,0,2),color='yellow')
+
+T = PolynomialRing(QQ,'t')
+t = T.gen()
+
+hh = h(0,t)
+hh.roots()
+
+
+print(f(-1,1))
+print(g(-1,1))
+```
+
 ## Week 15
 
 
