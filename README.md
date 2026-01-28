@@ -129,7 +129,7 @@ def ext_eucl(a,b):
 ## Week 13
 
 - [Week 13, lecture 1, board images](notizen/wise_25_26/algebra_wise_25_26_week_13_1.pdf)
-- [Week 13, lecture 1, board images](notizen/wise_25_26/algebra_wise_25_26_week_13_2.pdf)
+- [Week 13, lecture 2, board images](notizen/wise_25_26/algebra_wise_25_26_week_13_2.pdf)
 
 
 ## Week 14
@@ -137,7 +137,7 @@ def ext_eucl(a,b):
 This week, we've played with Groebner bases in SageMath. In particular, we generated this code:
 
 - [Week 14, lecture 1, board images](notizen/wise_25_26/algebra_wise_25_26_week_14_1.pdf)
-- [Week 14, lecture 1, board images](notizen/wise_25_26/algebra_wise_25_26_week_14_2.pdf)
+- [Week 14, lecture 2, board images](notizen/wise_25_26/algebra_wise_25_26_week_14_2.pdf)
 
 
 ```python
