@@ -136,6 +136,10 @@ def ext_eucl(a,b):
 
 This week, we've played with Groebner bases in SageMath. In particular, we generated this code:
 
+- [Week 14, lecture 1, board images](notizen/wise_25_26/algebra_wise_25_26_week_14_1.pdf)
+- [Week 14, lecture 1, board images](notizen/wise_25_26/algebra_wise_25_26_week_14_2.pdf)
+
+
 ```python
 R = PolynomialRing(QQ,'x,y',order='lex')
 x,y = R.gens()
