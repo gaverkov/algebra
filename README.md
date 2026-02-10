@@ -201,4 +201,6 @@ print(g(-1,1))
 
 ## Week 15
 
+- [Week 15, lecture 1, board images](notizen/wise_25_26/algebra_wise_25_26_week_15_1.pdf)
+- [Week 15, lecture 2, board images](notizen/wise_25_26/algebra_wise_25_26_week_15_2.pdf)
 
