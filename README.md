@@ -38,13 +38,15 @@ Specific math knowledge:
 
 ## Week 1. 
 
+## Algebraic viewpoint. Why formal expressions? 
+
 There might be a misconception regarding the **algebraic viewpoint** on things.
 
 The basic idea in algebra is that one often views mathematical objects as **number-like objects**. In this respect, polynomials are formal expressions. We can manipulate them as formal expressions, without any need to attach a function to such an expression.
 
 Once addition and multiplication are defined for polynomials, we can treat them as number-like objects. Indeed, just as we do with integers, which we can add and multiply, we can also add and multiply polynomials.
 
-Algebraists see this formal approach as a simplification. Functions can be extremely complicated objects. A polynomial, in contrast, is nothing but a collection of coefficients attached to exponent vectors. In other words, we can think of a polynomial as a finite map
+Algebraists see this formal approach as a simplification. Functions can be extremely complicated objects. A polynomial, in contrast, is nothing but a collection of coefficients attached to exponent vectors. In other words, from the computer-science perspective we can view a polynomial as a dictionary 
 
 $$
 \text{exponent vectors} \longrightarrow \text{coefficients}.
@@ -66,19 +68,25 @@ The output is
 {(0, 2): 1, (1, 1): -2, (2, 0): 1}
 ```
 
-This simply records the three monomials:
+This simply records the three terms:
 
 $$
 y^2,\qquad -2xy,\qquad x^2.
 $$
 
-The tuples `(0,2)`, `(1,1)`, and `(2,0)` are the corresponding **exponent vectors**, while `1`, `-2`, and `1` are their coefficients.
 
-Notice that we have not needed to think of \(f\) as a function at all. We are just manipulating an algebraic object whose terms are encoded by coefficients and exponent vectors.
+Notice that we have not needed to think of $$f$$ as a function at all. We are just manipulating an algebraic object whose terms are encoded by coefficients and exponent vectors.
 
 This is one of the reasons the algebraic viewpoint is so useful: instead of thinking about potentially complicated functions, we can work with relatively simple formal objects and the algebraic operations defined on them.
 
+### Polynomials have only finitely many non-zero coefficients... 
 
+As a polynomial $$ f \in k[x_1,\ldots,x_n]$ has only finitely many non-zero coefficients it is possible to store polynomial naturally using finite data (as long as storing the elements of the coefficient domain $$k$$ is not a problem). On the otherhand,
+if we do not require that only finitely many coefficients are non-zero, we still a ring, the so-called ring
+of formal power series. The notation for it is $$k[[x_1,\ldots,x_n]]$$. This ring 
+also has objects that can be associated to functions that are considered in analysis, but they are not defined
+in terms of the convergence. Note that formal power series can still be added and multiplied the same ways as
+polynomials. So, again, formal power series are number-like objects, albeit objects whose storage requires infinite storage space. 
 
 # WiSe 25/26
 
