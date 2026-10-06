@@ -2,6 +2,7 @@
 
 # Algebra: Structures and Algorithms
 
+
 Module description: https://www.b-tu.de/modul/13911
 
 Prerequisites for the course. Basically, that is a wish list or a nice-to-have list for certain skills and some background knowledge. 
@@ -32,6 +33,51 @@ Specific math knowledge:
 - Linear algebra: Vector spaces, vector subspaces, basis, dimension.
 - Linear algebra: linear map, rank nullity theorem, kernel, image
 - The notion of derivative and partial derivative
+
+# WiSe 26/27 
+
+## Week 1. 
+
+There might be a misconception regarding the **algebraic viewpoint** on things.
+
+The basic idea in algebra is that one often views mathematical objects as **number-like objects**. In this respect, polynomials are formal expressions. We can manipulate them as formal expressions, without any need to attach a function to such an expression.
+
+Once addition and multiplication are defined for polynomials, we can treat them as number-like objects. Indeed, just as we do with integers, which we can add and multiply, we can also add and multiply polynomials.
+
+Algebraists see this formal approach as a simplification. Functions can be extremely complicated objects. A polynomial, in contrast, is nothing but a collection of coefficients attached to exponent vectors. In other words, we can think of a polynomial as a finite map
+
+$$
+\text{exponent vectors} \longrightarrow \text{coefficients}.
+$$
+
+For example,
+
+```python
+PR = PolynomialRing(QQ, 'x,y')
+x, y = PR.gens()
+
+f = (x - y)^2
+print(f.dict())
+```
+
+The output is
+
+```text
+{(0, 2): 1, (1, 1): -2, (2, 0): 1}
+```
+
+This simply records the three monomials:
+
+$$
+y^2,\qquad -2xy,\qquad x^2.
+$$
+
+The tuples `(0,2)`, `(1,1)`, and `(2,0)` are the corresponding **exponent vectors**, while `1`, `-2`, and `1` are their coefficients.
+
+Notice that we have not needed to think of \(f\) as a function at all. We are just manipulating an algebraic object whose terms are encoded by coefficients and exponent vectors.
+
+This is one of the reasons the algebraic viewpoint is so useful: instead of thinking about potentially complicated functions, we can work with relatively simple formal objects and the algebraic operations defined on them.
+
 
 
 # WiSe 25/26
