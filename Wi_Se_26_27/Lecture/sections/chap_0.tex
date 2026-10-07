@@ -1,0 +1,48 @@
+\setcounter{section}{-1}
+\section{The Very Basics} 
+
+\begin{center}
+\textcolor{gray}{------------------------------------------- 05.10.2026 --------------------------------------------} \\[0.3em]
+\end{center}
+
+The key structures in algebra: groups, rings and fields.
+
+\begin{definition}[title =  Definition (Abelian) Group]
+    An \textit{abelian group} is a set $G$ with an operation $\ast: G \times G \to G$ which satisfies the following $\forall a, b, c \in G$: 
+    \begin{align*}
+  \ast: \mathbb{R}\setminus \left\{0\right\} &\times \mathbb{R} \setminus \left\{0\right\} \to \mathbb{R}\setminus \left\{0\right\}\\
+  a \ast b &= b \ast a \tag{C}\label{agroup_com}\\
+  a \ast (b \ast c) &= (a\ast b) \ast c \tag{A}\label{agroup_asso} \\
+  a \ast e & = a \tag{N}\label{agroup_neutral} \\
+  a \ast (a^{-1}) &= e \tag{I}\label{agroup_inverse}
+\end{align*} \ \\[0.3em]
+$\Rightarrow$ without the commutativity $G$ would just be called a \textit{group}.
+\end{definition}
+$\rightarrow$ Group Theory (Abelian Groups are much easier than general ones) 
+
+\begin{definition}[title = Definition Ring]
+    A \textit{ring} is a set $R$ with the operations $+: R \times R \to R$ and $\cdot: R \times R \to R$ which satisfies the following $\forall a, b, c \in R$:  \\[0.5em]
+    \begin{tabular}{@{}l l l l@{}}
+        \quad & \textbf{CA} & : & $a + b = b + a, \forall a, b \in R$ \\
+        \quad & \textbf{AA} & : & $a + (b + c) = (a + b) + c, \forall a, b, c \in R$ \\
+        \quad & \textbf{NA} & : & There exists a unique element in $R$, denoted by $0$ or $0_R$, such that $a + 0 = a, \forall a \in R$ \\
+        \quad & \textbf{IA} & : & For every $a \in R$ there exists a unique element $-a \in R$ such that $a + (-a) = 0$ \\
+        \quad & \textbf{AM} & : & $a \cdot (b \cdot c) = (a \cdot b) \cdot c, \forall a, b, c \in R$ \\
+        \quad & \textbf{D} & :& $a \cdot (b + c) = a \cdot b + a \cdot c, \forall a, b, c \in R$ and $(a + b) \cdot c = a \cdot c + b \cdot c, \forall a, b, c \in R$ \\
+    \end{tabular} \\[1em]
+    $\rightarrow$ A ring $(R, +, \cdot)$ is called \textit{commutative} when: \\[0.5em]
+    \begin{tabular}{@{}l l l l@{}}
+        \quad & \textbf{CM} & : & $a \cdot b = b \cdot a, \forall a, b \in R$ \\
+    \end{tabular}\\[1em]
+    $\rightarrow$ A ring $(R, + , \cdot)$ is called a \textit{unitary} when: \\[0.5em]
+    \begin{tabular}{@{}l l l l@{}}
+        \quad & \textbf{NM} & : & There exists a unique element in $R$, denoted by $1$ or $1_R$, such that $a \cdot 1 = a, \forall a \in R$ \\
+    \end{tabular} \\[1em]
+    $\rightarrow$ A ring $(R, +, \cdot)$ is called \textit{proper} if in that ring one has $0_R \neq 1_R$.
+\end{definition}
+$\rightarrow$ Theory of commutative rings is called commutative algebra.
+
+\begin{definition}[title = Definition Field] 
+    A proper, unitary, commutative ring $(R, +, \cdot)$ is called a \textit{field} if all non-zero elements of $R$ have a multiplicative inverse.
+\end{definition} 
+$\rightarrow$ Galois Theory, Theory of finite fields, algebraic closure, etc.

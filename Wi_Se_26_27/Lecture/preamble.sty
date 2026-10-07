@@ -1,0 +1,408 @@
+%-----------------------------------
+%ermöglicht Umlaute fürs Schreiben in deutscher Sprache
+\usepackage[utf8]{inputenc} 
+
+%-----------------------------------
+% --> Package von Max Gast für "schäfere Schrift", ist nicht wirklich nötig...
+%\usepackage{lmodern} 
+\usepackage[T1]{fontenc} % Sonderzeichen und Akzente im Text
+%-----------------------------------
+%Erweiterung des vorherigen Packages um Anführungszeichen zu benutzen, funktioniert nicht richtig, 
+%Inhaltsverzeichnes verschwindet bei Nutzung
+% \usepackage[T1, EU1]{fontenc}
+
+%-----------------------------------
+%\enquote{} for correct quotation marks (Kommentar Lucas)
+%setzt automatisch die richtigen Anführungszeichen in einen Text, Verschachtelung möglich
+  %ist das das selbe wie das nachfolgende???
+\usepackage[babel]{csquotes} 
+% \PassOptionsToPackage{german}{babel} %--> schieb glaube ich deutsch als Sprache ins babel-Package
+% \usepackage[ngerman]{babel}
+\usepackage[english]{babel}
+%-----------------------------------
+\usepackage[bitstream-charter]{mathdesign} %Font für Mathekram
+
+%-----------------------------------
+\usepackage{microtype} % Small font stretching for better readability
+
+%-----------------------------------
+\usepackage{pdflscape}
+\usepackage{csquotes}
+%-----------------------------------
+\usepackage{booktabs}
+
+%-----------------------------------
+
+%-----------------------------------
+\usepackage{amsmath}
+
+%-----------------------------------
+\usepackage[usenames,dvipsnames]{xcolor} 
+
+%-----------------------------------
+\usepackage[breakable,skins]{tcolorbox}
+
+%-----------------------------------
+\usepackage{enumitem}
+
+%-----------------------------------
+\usepackage{comment}
+
+%-----------------------------------
+\usepackage{pdfpages} % PDF Seiten einfügen
+
+%-----------------------------------
+%Grafikoberfläche
+\usepackage{tikz}
+\usetikzlibrary{calc,intersections, hobby}
+
+%-----------------------------------
+%Implementierung von Graphen
+\usepackage{forest}
+
+%-----------------------------------
+%Gauß
+\usepackage{gauss}
+
+
+\setkomafont{title}{\normalfont}
+\setkomafont{author}{\normalfont}
+\setkomafont{date}{\normalfont}
+\setkomafont{section}{\normalfont\bfseries\Large}
+\setkomafont{subsection}{\normalfont\large}
+\setkomafont{subsubsection}{\normalfont\itshape\normalsize}
+\usepackage[left=7em,right=7em,top=15ex,bottom=15ex]{geometry}
+\newcommand*\tocentryformat[1]{{\normalfont#1}}
+\RedeclareSectionCommands
+[
+tocentryformat=\tocentryformat,
+tocpagenumberformat=\tocentryformat
+]
+{section,subsection,subsubsection,paragraph,subparagraph}
+\usepackage[hidelinks]{hyperref} % Links in PDF documents
+\usepackage{bookmark} % Slight extension of hyperref package, pdf bookmark standard
+\usepackage{graphicx} % ALlow including graphics
+\usepackage{parskip}
+\graphicspath{{./images/}}
+\usepackage{enumitem}
+
+\usepackage{float} % To allow H option to place floats RIGHT HERE in the text (less confusing for most)
+
+
+% LISTINGS
+\usepackage{listings}
+\lstset{
+	inputencoding=utf8,
+	extendedchars=true,
+	literate={ä}{{\"a}}1 {ö}{{\"o}}1  {ü}{{\"u}}1
+}
+
+% -----------------------------------------------
+% Pseudocode environment taken and edited from https://tex.stackexchange.com/questions/111116/what-is-the-best-looking-pseudo-code-package/218450#218450
+% -----------------------------------------------
+%\newcounter{nalg}[chapter] % defines algorithm counter for chapter-level
+%\renewcommand{\thenalg}{\thechapter .\arabic{nalg}} %defines appearance of the algorithm counter
+%\DeclareCaptionLabelFormat{algocaption}{Algorithm \thenalg} % defines a new caption label as Algorithm x.y
+
+\lstnewenvironment{lstpseudo}[1][] %defines the algorithm listing environment
+{
+	%	\refstepcounter{nalg} %increments algorithm number
+	%	\captionsetup{labelformat=algocaption,labelsep=colon} %defines the caption setup for: it ises label format as the declared caption label above and makes label and caption text to be separated by a ':'
+	\vspace{1em}\hspace{1em}\textbf{#1}\vspace{-.4em}
+	\lstset{ %this is the stype
+		mathescape=true,
+		frame=tB,
+		numbers=left,
+		numberstyle=\tiny,
+		basicstyle=\scriptsize,
+		keywordstyle=\color{black}\bfseries\em,
+		keywords={,input, output, return, repeat, until, datatype, function, for, to, in, if, then, else, foreach, do, while, begin, end, } %add the keywords you want, or load a language as Rubens explains in his comment above.
+		numbers=left,
+		xleftmargin=.04\textwidth,
+		%		#1 % this is to add specific settings to an usage of this environment (for instnce, the caption and referable label)
+	}
+}
+{}
+
+\lstnewenvironment{lstjava}[1][] %defines the lstjava listing environment
+{
+	%	\refstepcounter{nalg} %increments algorithm number
+	%	\captionsetup{labelformat=algocaption,labelsep=colon} %defines the caption setup for: it ises label format as the declared caption label above and makes label and caption text to be separated by a ':'
+	\vspace{1em}\hspace{1em}\textbf{#1}\vspace{-.4em}
+	\lstset{%
+		language=Java,              % Sprachentyp definieren
+		numbers=left,               % Zeilennummern links
+		stepnumber=1,               % Jede Zeile nummerieren.
+		keywordstyle=\color{violet}\textbf,
+		% numbersep=5pt,                % Abstand der Nummern zum Quellcode
+		numberstyle=\footnotesize,               % Zeichengr<F6>sse f<FC>r die Nummern.
+		breaklines=true,                % Zeilen umbrechen wenn notwendig.
+		breakautoindent=true,           % Nach dem Zeilenumbruch Zeile einr<FC>cken.
+		postbreak=\space,               % Bei Leerzeichen umbrechen.
+		tabsize=3,                      % Tabulatorgroesse
+		numbersep=20pt,
+		%	basicstyle=\small\fontfamily{cmtt},     % Nichtproportionale Schrift, klein f<FC>r den Quellcode
+		showspaces=false,               % Leerzeichen nicht anzeigen.
+		showstringspaces=false,         % Leerzeichen auch in Strings ('') nicht anzeigen.
+		extendedchars=true,             % Alle Zeichen vom Latin1 Zeichensatz anzeigen.
+		emphstyle = \underbar,
+		captionpos = t,
+		xleftmargin=0pt,
+		%    xrightmargin=-120pt,
+		framexleftmargin=7pt,
+		framexrightmargin=7pt,
+		framextopmargin=5pt,
+		framexbottommargin=5pt,
+		frame=rtlb %
+	}
+}
+{}
+
+\usepackage[headsepline, headtopline]{scrlayer-scrpage}
+% Neue schicke Farben
+\definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66}
+\definecolor{darkgreen}{rgb}{0.0, 0.2, 0.13}
+\definecolor{cherryblossompink}{rgb}{1.0, 0.72, 0.77}
+\definecolor{darkbyzantium}{rgb}{0.36, 0.22, 0.33}
+\definecolor{chromeyellow}{rgb}{1.0, 0.65, 0.0}
+\definecolor{mediumcarmine}{rgb}{0.69, 0.25, 0.21}
+\definecolor{platinum}{rgb}{0.9, 0.89, 0.89}
+\definecolor{silver}{rgb}{0.75, 0.75, 0.75}
+
+\tcbuselibrary{breakable, skins}
+\usepackage{environ}
+\usepackage{etoolbox}
+\usepackage{ifthen}   % für \whiledo
+
+
+% Include a centered figure into the text.
+% Arg1: Path to the image (root is the images folder)
+% Arg2: Width in percentage of the linewidth (e.g. .8 for 80%, or 1.1 for 110%)
+% Arg3: Caption of the image (should be short enough to fit into a table of contents), if you want a longer one use the other command \centergraphicslongcapt
+\newcommand{\centergraphics}[3]{
+	\centergraphicslongcapt{#1}{#2}{#3}{#3}
+}
+% Include a centered figure into the text
+% Arg1: Path to the image (root is the images folder)
+% Arg2: Width in percentage of the linewidth (e.g. .8 for 80%, or 1.1 for 110%)
+% Arg3: Short Caption of the image for the table of contents
+% Arg4: Long caption of the image for the text
+\newcommand{\centergraphicslongcapt}[4]{
+	\begin{figure}[!h]% Remove the !h if you don't want the graphics to be placed RIGHT THERE
+		\centering%
+		\makebox[\linewidth][c]{% makebox ensures image is centered even if it's too big
+			\includegraphics[width=#2\linewidth]{#1}%
+		}%
+		\caption[#3]{#4}%
+	\end{figure}
+}
+\definecolor{burgundy}{rgb}{0.5, 0.0, 0.13} 
+
+\newtcolorbox{example}[1][]{
+	title = Example,
+    enhanced jigsaw,
+    breakable,
+    sharp corners,
+    colback=white!5!white,
+    colframe=burgundy!20!white,
+    coltitle=black,
+    fonttitle=\bfseries,
+    #1
+}
+\definecolor{forestgreen(traditional)}{rgb}{0.0, 0.27, 0.13}
+\newtcolorbox{proposition}[1][]{
+	title=Proposition,
+    enhanced jigsaw,
+    breakable,
+    sharp corners,
+    arc=0pt,
+    colback=white!5!white,
+    colframe=forestgreen(traditional)!20!white,
+    coltitle=black,
+    fonttitle=\bfseries,
+    #1
+}
+\newcommand{\bwhy}{\begin{why}}
+\newcommand{\ewhy}{\end{why}}
+
+\newtcolorbox{theorem}[1][]{
+	title=Theorem,
+    enhanced jigsaw,
+    breakable,
+    sharp corners,
+    colback=white!5!white,
+    colframe=MidnightBlue!20!white,
+    coltitle=black,
+    fonttitle=\bfseries,
+    #1
+}
+\definecolor{meatbrown}{rgb}{0.9, 0.72, 0.23}
+\newtcolorbox{lemma}[1][]{
+	title=Lemma,
+    enhanced jigsaw,
+    breakable,
+    sharp corners,
+    colback=white!5!white,
+    colframe=meatbrown!20!white,
+    coltitle=black,
+    fonttitle=\bfseries,
+    #1
+}
+
+\definecolor{lightbrown}{rgb}{0.71, 0.4, 0.11}
+\newtcolorbox{korollar}[1][]{
+	title=Corollary,
+    enhanced jigsaw,
+    breakable,
+    sharp corners,
+    colback=white!5!white,
+    colframe=lightbrown!20!white,
+    coltitle=black,
+    fonttitle=\bfseries,
+    #1
+} 
+
+\newtcolorbox{proof}[1][]{
+	title=proof,
+    enhanced jigsaw,
+    breakable,
+    colback=white!5!white,
+    colframe=LimeGreen!30!white,
+    coltitle=black,
+    #1
+}
+
+\newtcolorbox{remark}[1][]{
+	title=remark,
+    sharp corners,
+    enhanced jigsaw,
+    breakable,
+    colback=white!5!white,
+    colframe=YellowOrange!30!white,
+    coltitle=black,
+    fonttitle=\bfseries,
+    #1
+}
+
+\newtcolorbox{bemerkung}[1][]{
+	title=Anmerkung,
+    enhanced jigsaw,
+    breakable,
+    colback=white!5!white,
+    colframe=chromeyellow!30!white,
+    coltitle=black,
+    #1
+}
+
+\newtcolorbox{idee}[1][]{
+	title=Anmerkung,
+    enhanced jigsaw,
+    breakable,
+    colback=white!5!white,
+    colframe=gray!30!white,
+    coltitle=black,
+    #1
+}
+
+\newtcolorbox{erlaeuterung}[1][]{
+	title=Erläuterung,
+    enhanced jigsaw,
+    breakable,
+    colback=white!5!white,
+    colframe=Goldenrod!30!white,
+    coltitle=black,
+    #1
+}
+
+\newtcolorbox{regel}[1][]{
+	title=Regel,
+    enhanced jigsaw,
+    breakable,
+    colback=white!5!white,
+    colframe=Gray!30!white,
+    coltitle=black,
+    #1
+}
+
+\newtcolorbox{wiederholung}[1][]{
+	title=Wiederholung,
+    enhanced jigsaw,
+    breakable,
+    colback=white!5!white,
+    colframe=BurntOrange!30!white,
+    coltitle=black,
+    #1
+}
+
+\newtcolorbox{behauptung}[1][]{
+	title=Behauptung,
+    enhanced jigsaw,
+    breakable,
+    colback=white!5!white,
+    colframe=airforceblue!30!white,
+    coltitle=black,
+    #1
+}
+
+\newtcolorbox{algorithmus}[1][]{
+	title=Algorithmus,
+    enhanced jigsaw,
+    breakable,
+    colback=white!5!white,
+    colframe=darkgreen!30!white,
+    coltitle=black,
+    #1
+}
+
+\definecolor{darkelectricblue}{rgb}{0.33, 0.41, 0.47}
+\newtcolorbox{definition}[1][]{
+	title=Definition,
+    enhanced jigsaw,
+    breakable,
+    sharp corners,
+    colback=white!5!white,
+    colframe=darkelectricblue!20!white,
+    coltitle=black,
+    fonttitle=\bfseries,
+    #1
+}
+
+
+\newtcolorbox{theorie}[1][]{
+	title=Theorie,
+    enhanced jigsaw,
+    breakable,
+    colback=white!5!white,
+    colframe=silver!30!white,
+    coltitle=black,
+    #1
+}
+
+\newtcolorbox{loesung}[1][]{
+	title=Lösung,
+    enhanced jigsaw,
+    breakable,
+    colback=white!5!white,
+    colframe=mediumcarmine!30!white,
+    coltitle=black,
+    #1
+}
+
+\newtcolorbox{dumme}[1][]{
+	title=Explained to a Ten Year Old by a LLM,
+    enhanced jigsaw,
+    breakable,
+    colback=white!5!white,
+    colframe=gray!30!white,
+    coltitle=black,
+    #1
+}
+
+
+%TodoBoxen in der PDF
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+%\newcommandx{\idee}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+%\newcommandx{\TODO}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+%\newcommandx{\ergaenzen}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+%\newcommandx{\improvement}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
+%\newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}

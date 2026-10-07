@@ -1,0 +1,55 @@
+\documentclass[headheight=100pt,fontsize=10pt, a4paper, english, parskip]{scrartcl}
+
+\usepackage{preamble}
+
+\usepackage{blindtext}
+
+\begin{document}
+
+%\pdfbookmark[1]{Projektmanagement Ausarbeitung}{titlepage-anc}
+%
+\renewcommand{\titlepagestyle}{empty}
+\thispagestyle{empty}
+%  
+%\capstartfalse
+\vspace*{-3cm}
+\begin{figure}[h]
+	\begin{minipage}[l]{0.55\textwidth}
+		\begin{flushleft}	
+			\includegraphics[trim = 150mm 50mm 150mm 0mm, clip, scale=0.05, angle=0]{btu-quer}
+		\end{flushleft}	
+	\end{minipage}%
+	\begin{minipage}[r]{0.45\textwidth}
+		\begin{flushright}
+	%\footnotesize\colorbox{blue}{\textcolor{white}{Fakultät 1}} \\[.2em]
+			\footnotesize{Faculty 1} \\[.2em]
+			\textcolor{black}{Chair of Algorithmic Mathematics} \\[.2em]
+			\footnotesize{Prof. Dr. rer. nat. Gennadiy Averkov}
+		\end{flushright}	
+	\end{minipage} 
+\end{figure}
+%\capstarttrue
+
+\begin{center}
+    \sffamily
+	\Large{\textbf{Module 13911 - Algebra: Structures and Algorithms - Lecture}}  \\
+    \vspace{0.3cm}
+    \rule{\textwidth}{0.6pt}\\[0.5cm]
+	\normalfont
+\end{center} 
+
+\tableofcontents
+\clearpage
+
+\include{sections/chap_0.tex}
+\include{sections/chap_1.tex}
+
+\clearpage
+
+
+
+
+
+
+
+\end{document} 
