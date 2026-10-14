@@ -249,8 +249,111 @@ So, both functions are the same, but the polynomials are different
 \end{example}
 
 \textbf{Fun Fact:} Do we need $\mathbb{F}_2[x]$ for anything? \\
-$\rightarrow$ Yes! Advanced Encryption Standard (AES) used the field $\mathbb{F}_{256}$, who construction requires taking a polynomial from $\mathbb{F}_2[x]$.  
+$\rightarrow$ Yes! Advanced Encryption Standard (AES) used the field $\mathbb{F}_{256}$, whose construction requires taking a polynomial from $\mathbb{F}_2[x]$.  
 
+ 
+  \begin{center}
+    \textcolor{gray}{------------------------------------------- 12.10.2026 --------------------------------------------} \\[0.3em]
+  \end{center} \ \\[0.15em]  
+  \textbf{Note:} Test today $\rightarrow$ some will need to catch up \\
+   $\rightarrow$ Check-In Date for the catch-up cohort: $9^{th}$ of November, you show your progress on the form of the written 
+  solutions of the exercises from a textbook (linear algebra over arbitrary fields, with proofs). 
+  
+\begin{exercise}[title = Entry Level Exercise]
+  \begin{enumerate}
+    \item Formulate mathematical induction (with words and/or formulas).  
+    \item Define the notion of a group. Give an example of an abelian and a non-abelian group. 
+    \item Define the notion of a ring. Give an example of a commutative and a non-commutative ring. 
+    \item Define the notion of a field. Give an example of an infinite and finite field. 
+    \item Let $k$ be a infinite field and consider a univariate polynom $f \in k[x]$. \\ 
+    Proof: $f = 0$ $\Leftrightarrow$ $f(a) = 0, \forall a \in k$. 
+  \end{enumerate}
+\end{exercise} 
+
+  \begin{center}
+    \textcolor{gray}{------------------------------------------- 13.10.2026 --------------------------------------------} \\[0.3em]
+  \end{center} 
+  \vspace{0.5cm}
 \begin{theorem}[title =Theorem 1.1.8]
-  Let the field $k$ be infinite. Then $f \in k[x_1, \dots, x_n]$ is a zero polynomial (all doefficients of $f$ are zero) if and only if $f: k^n \to k$ is a zero function.  
+  Let the field $k$ be infinite. Then $f \in k[x_1, \dots, x_n]$ is a zero polynomial (all coefficients of $f$ are zero) if and only if $f: k^n \to k$ is a zero function. 
+  
+  \paragraph{Proof:} The implikation ($\Rightarrow$) is trivial because $f = \sum_{\alpha} c_{\alpha} x^{\alpha}$ gets evaluated to zero on $k^n$ when all of the $c_{\alpha}$'s are zero. 
+  So, the actual work is to show the converse $(\Leftarrow)$. For the converse, we are going to use the mathematical induction on $n$. \\
+  
+  We consider the case $n = 1$. as a basis of the induction. We consider a polynomial $f$ in one variable $x$, which is \underline{not} a zero polynomial 
+  and show that $f(a) \neq 0$ for some $a \in k$. We can write $f$ as $f = \sum_{i=1}^{d} c_i x^i$ where $d \in \mathbb{N}_0$ and $c_d \neq 0$.  \\
+  
+  \begin{addmargin}[0.6cm]{0cm}  
+    \textbf{Version 1 of the argument:} \hspace*{0.2cm} Pick a zero of $f$, as long as there is one, let's call it $a_1 \in k$ and divide $f$ by $(x - a_1)$ (in the sense of long division). 
+    It get's divided with the 0 remainder. So, we have $f = (x = a_1) \cdot g$ where $g$ has degree $d-1$ (the degree drops). If $g$ is divisible by $(x - a_1)$, keep dividing. 
+    Once this process of dividing by $(x - a_1)$ is finished, we have $f = (x - a_1)^{p_1} \cdot h(x)$, where the degreee of $h$ is smaller than the degree of $g$ and $a_1$ is not a zero of $h$. 
+    If there is another zero, say $a_2 \in k$, do the same obtaining  $f = (x - a1)^{p_1} \cdot (x - a_2)^{p_2} \cdot u(x)$, where $a_1$ and $a_2$ are both not zero of $u(x)$. 
+    Iterating this way, we end up at the representation $f = (x - a_1)^{p_1} \cdot (x - a_2)^{p_2} \cdot \dots \cdot (x - a_m)^{p_m} \cdot w(x)$ where $a_1, \ldots, a_m \in k$, $deg f = p_1 + \ldots + p_m + deg(w)$ 
+    and $w$ has no zero in $k$. This shows that a non-zero polynomial of degree $d \in \mathbb{N}_0$ with at most $d \in \mathbb{N}_0$ zeros, where $d$ is finite, but 
+    our field $k$ is infinite. So, $f : k \to k$ is only zero on $\{a_1, \ldots, a_m\}$ and so it's not a zero function.
+  \end{addmargin}
+
+
 \end{theorem}
+\clearpage
+  \begin{theorem}[title =Theorem 1.1.8 (Continued)]
+    \begin{addmargin}[0.6cm]{0cm}  
+    \textbf{Version 2 of the argument for $n = 2$:} \hspace*{0.2cm} Let's use linear algebra and polynomial interpolation. Let's consider all polynomial of degree at most $d \in \mathbb{N}$, 
+    where $d$ is fixed and arbitrary. Denote the set of these polynomials by $k[x]_d = \{\sum_{i = 0}^{d} c_i x^i: c_i \in k \text{for every} i\}$. 
+    This is a $k$-vector space of dimension of $d + 1$.  
+    We fix $d + 1$ dstinct values $a_1, \ldots, a_{d+1}$ in $k$ (our field is infinite, so no matter how large our $d$ is, we always have  such a choice) 
+    and consider the linear map that evaluates $f \in k[x]_d$ at these values. 
+    \[ev(f) = (f(a_1), \ldots, f(a_{d+1}))\] 
+
+    \begin{minipage}{0.49\textwidth}
+    This is the map $ev: \underbrace{k[x]_d}_{\text{dimension } d+1} \to \underbrace{k^{d + 1}}_{\text{dimension } d+1}$.  \\
+    
+    We're going to show that this map is surjective (in the language of the numerical mathematics: the polynomial interpolation task is solvable).  
+    \end{minipage}
+\hspace*{0.2cm}
+    \begin{minipage}{0.49\textwidth}
+    \begin{tikzpicture}[>=stealth, scale = 0.8]
+        % x-Achse
+        \draw[->] (-0.5,0) -- (6.5,0) node[right] {$x$};
+
+        % Parabel (nach oben verschoben)
+        \draw[green!60!black, thick, domain=0.3:5.7, smooth, samples=100]
+          plot (\x, {0.25*(\x-3)^2 + 2});
+
+        % Markierungen, gestrichelte Linien und Punkte
+        \foreach \x/\l in {1/1, 3/2, 5/3} {
+          \draw (\x,0.08) -- (\x,-0.08) node[below] {$x_{\l}$};
+          \draw[dashed] (\x,0) -- (\x,{0.25*(\x-3)^2 + 2});
+          \fill (\x,{0.25*(\x-3)^2 + 2}) circle (2.5pt);
+        }
+    \end{tikzpicture}
+  \end{minipage}
+
+  Let's fix an arbitrary $y = (y_1, \ldots, y_{d+1}) \in k^{d + 1}$ and determine an $f \in k[x]_{d+1}$ satisfying $f(a_i) = y_i$ for all $i \in \{1, \ldots, d+1\}$.   
+
+  Introduce \[l_i(x) = \prod_{j = 1 \ldots, d+ 1: j \neq i} \frac{x - a_j}{a_i - a_j} \in k[x]_{d}\] which satisfies 
+  \[l_i(a_j) = \begin{cases}
+    1, & \text{if } i = j \\ 
+    0, & \text{if } i \neq j
+  \end{cases}\]
+  Now, it is clear that $f = y_1 \cdot l_1 + \ldots y_{d+1} \cdot l_{d+1}$ satisfies $f(a_i) = y_i$ for all $i = 1, \ldots, d+1$. 
+  We have shown that $ev: k[x]_d \to k^{d+1}$ is surjective. So, from linear algebra, we know that $f$ is also injective so that only the zero polynomial 
+  is mapped to $(0, \ldots, 0)$ by $ev$. 
+\end{addmargin} \ \\
+If you like more details on that point:  by the rank-nullity theorem, \[\underbrace{\dim \text{im}(ev)}_{\text{dimension} d+1}  + \underbrace{\dim \ker(ev)}_{\text{dimension} d+1} = \dim k[x]_d,\] so that $\dim \ker(ev) = 0$. \\
+
+  We have done the case $n =1$ and we continue with the inductive argument. Assume that the assertion is already verified for polynomials in $n -1$ variables for some $n \geq 2$. 
+  Based on this, we verify the assertion for polynomials in $n$ variables. \\
+    \begin{addmargin}[0.6cm]{0cm}  
+
+  We can write a polynomial $f \in k[x_1, \dots, x_n]$ as an element of $k[x_1, \dots, x_{n-1}][x_n]$, so we write $f= \sum_{i = 1}^{d} g_i(x_1, \dots, x_{n-1}) \cdot x_n^i$ with $g_1, \ldots, g_d  k[x_1, \dots, x_{n-1}]$. 
+  We fix arbitrary values for $x_1, \ldots, x_{n-1}$, which we denote by $a_1, \ldots, a_{n-1} \in k$. Fixing these values, we get $f(a_1, \ldots, a_{n-1}, x_n) = \sum_{i=1}^{d}g_i(a_1, \ldots, a_{n-1}) \cdot x_n^i \in k[x_n]$. 
+  By the $n=1$ case of our argument, whenever $f(a_1, \ldots, a_{n-1}, x_n)$ defines the zero function $k \to k$, it is a zero polynomial. 
+  Hence, its coefficients $g_i(a_1, \ldots, a_{n-1})$ are a;; zero. But since $(a_1, \ldots, a_{n-1})$ are \underline{arbitrary} values from $k$, the induction assumption implies that $g_i(x_1, \ldots, x_{n-1})$
+  is also a zero polynomial. Consequently, $f$ is a zero polynomial.   
+    \end{addmargin}
+  \begin{flushright}
+    $\Box $
+  \end{flushright}
+\end{theorem} 
+

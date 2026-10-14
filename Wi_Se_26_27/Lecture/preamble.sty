@@ -249,6 +249,19 @@ tocpagenumberformat=\tocentryformat
     #1
 }
 
+\definecolor{brown(traditional)}{rgb}{0.59, 0.29, 0.0}
+\newtcolorbox{exercise}[1][]{
+	title=Exercise,
+    enhanced jigsaw,
+    breakable,
+    sharp corners,
+    colback=white!5!white,
+    colframe=brown(traditional)!20!white,
+    coltitle=black,
+    fonttitle=\bfseries,
+    #1
+}
+
 \definecolor{lightbrown}{rgb}{0.71, 0.4, 0.11}
 \newtcolorbox{korollar}[1][]{
 	title=Corollary,
