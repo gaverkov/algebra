@@ -1,24 +1,19 @@
-# Literature 
+# Literature
 
-- Thomas W Judson, Abstract Algebra: Theory and Applications https://judsonbooks.org/aata-files/aata-20260811.pdf
-  Here, you can imagine that you are a cybersecurity student and you want to reach the level of mathematical
-  maturity that would allow you to digest cryptography (and coding theory) starting from school math (integers).
-  This book guides you towards this aim within less than 400 pages. The first two chapters explain proofs
-  and the mathematics over integers, then one does groups in the course of three more chapters. After this,
-  one starts with cryptography and continues. 
-  
-- Oscar Levin, Discrete Mathematics: An open introduction. https://discrete.openmathbooks.org/pdfs/dmoi4.pdf
-  If you need to catch up on proof-based math in general, that could be a book that helps you. 
-  This is a textbook for computer scientists that discusses the university level math from scratch, including
-  all of the little details that tend to me taken for granted in many of the courses. As the book is really
-  detailed, it is long. I view the contents of this book as a set of mathematical prerequisites for BS degree
-  in math and computer science.
-  
-- Victor Shoup, A computational introduction to number theory and algebra, https://shoup.net/ntb/ntb-v2.pdf
-  This book is useful for cybersecurity  students.
-  The  material presents the necessary algebra on the way towards cryptographic applications. The book is long
-  and contains many topics (some chapters are rather complicated), but it starts basically from scratch.
+- **Thomas W. Judson, *Abstract Algebra: Theory and Applications***  
+  https://judsonbooks.org/aata-files/aata-20260811.pdf
 
+  Imagine that you are a cybersecurity student who wants to acquire the mathematical maturity needed to study cryptography and coding theory, starting from school mathematics (in particular, arithmetic with integers). This book guides you towards that goal in fewer than 400 pages. The first two chapters introduce mathematical proofs and arithmetic with integers. The next chapters develop group theory, and cryptographic applications appear relatively early in the book.
+
+- **Oscar Levin, *Discrete Mathematics: An Open Introduction***  
+  https://discrete.openmathbooks.org/pdfs/dmoi4.pdf
+
+  If you need to catch up on proof-based mathematics more generally, this book may be helpful. Written for computer science students, it develops university-level discrete mathematics from the ground up, including many of the details that are often taken for granted in other courses. The book is quite detailed and therefore long. I view it as a collection of mathematical prerequisites for a bachelor's degree in mathematics or computer science.
+
+- **Victor Shoup, *A Computational Introduction to Number Theory and Algebra***  
+  https://shoup.net/ntb/ntb-v2.pdf
+
+  This book is particularly useful for students of cybersecurity. It develops the number theory and algebra needed for cryptography, with an emphasis on algorithms and computation. The book covers many topics, some of which are rather advanced, but it starts with elementary arithmetic and gradually builds towards more sophisticated material.
 
 # Algebra: Structures and Algorithms
 
