@@ -1,4 +1,4 @@
-# Literature
+# Free online literature
 
 - **Thomas W. Judson, *Abstract Algebra: Theory and Applications***  
   https://judsonbooks.org/aata-files/aata-20260811.pdf
@@ -18,8 +18,14 @@
 - **Isaiah Lankham, Bruno Nachtergaele, Anne Schilling, *Linear Algebra as an Introduction to Abstract Mathematics*** https://www.math.ucdavis.edu/~anne/linear_algebra/mat67_course_notes.pdf
   A source in linear algebra that describes what sort of linear algebra one assumes as a prerequisite for an algebra course.
 
-- **Serge Lang, *Linear Algebra*** https://users.math.msu.edu/users/parker/309/Lang-linear-algebra.pdf A linear algebra book written by an algebra expert. 
+- **Serge Lang, *Linear Algebra*** https://users.math.msu.edu/users/parker/309/Lang-linear-algebra.pdf A linear algebra book written by an algebra expert.
 
+# Textbooks with proof-based math appropriate for computer science profile 
+
+- **Knuth, Graham, Patashnik, *Concrete Mathematics***
+- **Cormen, Leiserson, Rivest, Stein *Introduction to Algorithms*** Actually, this is a book about algorithms, but it is mathematically rigorous and detailed, and the appendices discuss mathematical topics relevant for computer scientists. 
+
+***TODO:* CLEAN UP THE PAGE**
 
 # Algebra: Structures and Algorithms
 
