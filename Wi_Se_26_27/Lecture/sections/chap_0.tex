@@ -10,13 +10,12 @@ The key structures in algebra: groups, rings and fields.
 \begin{definition}[title =  Definition (Abelian) Group]
     An \textit{abelian group} is a set $G$ with an operation $\ast: G \times G \to G$ which satisfies the following $\forall a, b, c \in G$: 
     \begin{align*}
-  \ast: \mathbb{R}\setminus \left\{0\right\} &\times \mathbb{R} \setminus \left\{0\right\} \to \mathbb{R}\setminus \left\{0\right\}\\
   a \ast b &= b \ast a \tag{C}\label{agroup_com}\\
   a \ast (b \ast c) &= (a\ast b) \ast c \tag{A}\label{agroup_asso} \\
   a \ast e & = a \tag{N}\label{agroup_neutral} \\
-  a \ast (a^{-1}) &= e \tag{I}\label{agroup_inverse}
+  a \ast a^{-1} &= e \tag{I}\label{agroup_inverse}
 \end{align*} \ \\[0.3em]
-$\Rightarrow$ without the commutativity $G$ would just be called a \textit{group}.
+$\Rightarrow$ without the commutativity \eqref{agroup_com} $G$ would just be called a \textit{group}.
 \end{definition}
 $\rightarrow$ Group Theory (Abelian Groups are much easier than general ones) 
 
