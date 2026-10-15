@@ -18,6 +18,8 @@
 - **Isaiah Lankham, Bruno Nachtergaele, Anne Schilling, *Linear Algebra as an Introduction to Abstract Mathematics*** https://www.math.ucdavis.edu/~anne/linear_algebra/mat67_course_notes.pdf
   A source in linear algebra that describes what sort of linear algebra one assumes as a prerequisite for an algebra course.
 
+- **Serge Lang, *Linear Algebra*** https://users.math.msu.edu/users/parker/309/Lang-linear-algebra.pdf A linear algebra book written by an algebra expert. 
+
 
 # Algebra: Structures and Algorithms
 
