@@ -15,7 +15,7 @@
 
   This book is particularly useful for students of cybersecurity. It develops the number theory and algebra needed for cryptography, with an emphasis on algorithms and computation. The book covers many topics, some of which are rather advanced, but it starts with elementary arithmetic and gradually builds towards more sophisticated material.
 
-- ** Isaiah Lankham, Bruno Nachtergaele, Anne Schilling, *Linear Algebra as an Introduction to Abstract Mathematics*** https://www.math.ucdavis.edu/~anne/linear_algebra/mat67_course_notes.pdf
+- **Isaiah Lankham, Bruno Nachtergaele, Anne Schilling, *Linear Algebra as an Introduction to Abstract Mathematics*** https://www.math.ucdavis.edu/~anne/linear_algebra/mat67_course_notes.pdf
   A source in linear algebra that describes what sort of linear algebra one assumes as a prerequisite for an algebra course.
 
 
