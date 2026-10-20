@@ -1,0 +1,72 @@
+\clearpage
+\subsection{An Example of a Topic that involves Varieties and Polynomials: Parametrization and Implicitization} 
+
+\begin{exercise}[title = Example 1.3.1 (Linear Case)]
+  Let's consider a line, given implicitly, that means by equations. 
+  \begin{align*}
+  \left\{\begin{aligned}
+    x + y + z & = 1 \\
+    x + 2y -z & = 3
+  \end{aligned}\right. 
+\end{align*}
+Our field is $\mathbb{R}$ for this example. Describe this line parametically. Let's call the parameter $t$.  \\ 
+
+\hspace*{0.5cm}\textcolor{airforceblue}{\textit{(Flashback to Kindergarten!!)}} \\ 
+
+\paragraph{Solution:} $\rightarrow$ same setting as linear case in Example 1.2.2 (6.)
+\begin{align*}
+  \left\{
+  \begin{aligned}
+    x + y + z & = 1 \\
+    x + 2y -z & = 3
+  \end{aligned} \right. \Longrightarrow
+  \left\{
+  \begin{aligned}
+    x + y + z & = 1 \\
+    y - 2z & = -2
+  \end{aligned} \right. \Longrightarrow 
+  \left\{
+    \begin{aligned}
+    x + 3z & = -1 \\
+    y - 2z & = 2
+    \end{aligned} \right.
+\end{align*}  
+
+\hspace*{0.5cm} Solutionset: \[\{(x,y,z): x = -1 - 3t, y = 2 + 2t, z = t, t \in \mathbb{R}\}\]
+\end{exercise}
+
+\begin{remark}[title = Remark 1.3.2]
+  The linear case is done by linear algebra: one can parameterize the solution set of a system of linear equations via Gaussian elimination. \\
+
+  \hspace*{0.5cm}\textcolor{airforceblue}{\textit{(Go through the details yourself or otherwise ask.)}} 
+\end{remark}
+
+\begin{example}[title = Example 1.3.3 (Quadratic Case)]
+  Let's consider everyone's favorite: the circle $x^2 + y^2 = 1$. 
+
+  The circle has a rational parametrization: \[x = \frac{u(t)}{g(t)}, y = \frac{v(t)}{g(t)}, u, v, g \in \mathbb{R}[t]\]  
+  Now consider the following: 
+  \begin{center}
+    \begin{tikzpicture}[scale=1.5]
+      \def\t{0.65}
+
+      % Achsen
+      \draw[black!70, ->] (-1.5,0) -- (1.6,0);
+      \draw[black!70, ->] (0,-1.2) -- (0,1.4);
+
+      % Einheitskreis
+      \draw[blue!70, thick] (0,0) circle (1);
+
+      % Gerade durch (-1,0) mit y-Achsenabschnitt t
+      \draw[kGreen!40!black, thick] (-1.3,{\t*(-1.3+1)}) -- (1.3,{\t*(1.3+1)});
+
+      % Punkt (-1,0)
+      \fill[kGreen!40!black] (-1,0) circle (1.2pt);
+
+      % Klammer für t
+      \draw[decorate, decoration={brace, amplitude=4pt, mirror}, green!40!black, thick]
+        (0,0) -- (0,\t) node[midway, right=5pt] {$t$};
+    \end{tikzpicture}
+  \end{center}
+  The slope of the line can be changed, which is represented by the parameter $t$. Find a representation of the other intersection of the line with the circle (in rational parameterization).
+\end{example}

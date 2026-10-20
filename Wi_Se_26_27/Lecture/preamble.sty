@@ -44,6 +44,10 @@
 
 %-----------------------------------
 \usepackage{enumitem}
+\makeatletter
+\newcommand{\oddlabel}{\the\numexpr2*\c@enumi-1\relax}
+\newcommand{\evenlabel}{\the\numexpr2*\c@enumi\relax}
+\makeatother
 
 %-----------------------------------
 \usepackage{comment}
@@ -56,6 +60,10 @@
 \usepackage{tikz}
 \usetikzlibrary{calc,intersections, hobby}
 
+\usepackage{pgfplots}
+\usepackage{tikz-3dplot}
+
+\pgfplotsset{compat=1.18}
 %-----------------------------------
 %Implementierung von Graphen
 \usepackage{forest}
@@ -168,6 +176,8 @@ tocpagenumberformat=\tocentryformat
 \definecolor{mediumcarmine}{rgb}{0.69, 0.25, 0.21}
 \definecolor{platinum}{rgb}{0.9, 0.89, 0.89}
 \definecolor{silver}{rgb}{0.75, 0.75, 0.75}
+\definecolor{kGreen}{RGB}{50,130,40}
+
 
 \tcbuselibrary{breakable, skins}
 \usepackage{environ}
@@ -196,8 +206,18 @@ tocpagenumberformat=\tocentryformat
 		\caption[#3]{#4}%
 	\end{figure}
 }
-\definecolor{burgundy}{rgb}{0.5, 0.0, 0.13} 
 
+% \ebene{Optionen}{a}{b}{c}{d}{x0}{x1}{y0}{y1}  für ax+by+cz=d, c≠0
+\newcommand{\ebene}[9]{%
+  \pgfmathsetmacro{\zA}{(#5-#2*#6-#3*#8)/#4}%
+  \pgfmathsetmacro{\zB}{(#5-#2*#7-#3*#8)/#4}%
+  \pgfmathsetmacro{\zC}{(#5-#2*#7-#3*#9)/#4}%
+  \pgfmathsetmacro{\zD}{(#5-#2*#6-#3*#9)/#4}%
+  \filldraw[#1] (#6,#8,\zA) -- (#7,#8,\zB) -- (#7,#9,\zC) -- (#6,#9,\zD) -- cycle;%
+} 
+
+\definecolor{burgundy}{rgb}{0.5, 0.0, 0.13} 
+ 
 \newtcolorbox{example}[1][]{
 	title = Example,
     enhanced jigsaw,
@@ -263,7 +283,7 @@ tocpagenumberformat=\tocentryformat
 }
 
 \definecolor{lightbrown}{rgb}{0.71, 0.4, 0.11}
-\newtcolorbox{korollar}[1][]{
+\newtcolorbox{corollary}[1][]{
 	title=Corollary,
     enhanced jigsaw,
     breakable,
