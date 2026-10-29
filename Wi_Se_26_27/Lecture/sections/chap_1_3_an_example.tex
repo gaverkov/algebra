@@ -45,28 +45,193 @@ Our field is $\mathbb{R}$ for this example. Describe this line parametically. Le
   Let's consider everyone's favorite: the circle $x^2 + y^2 = 1$. 
 
   The circle has a rational parametrization: \[x = \frac{u(t)}{g(t)}, y = \frac{v(t)}{g(t)}, u, v, g \in \mathbb{R}[t]\]  
-  Now consider the following: 
-  \begin{center}
-    \begin{tikzpicture}[scale=1.5]
-      \def\t{0.65}
+  Now consider the following:  
 
-      % Achsen
-      \draw[black!70, ->] (-1.5,0) -- (1.6,0);
-      \draw[black!70, ->] (0,-1.2) -- (0,1.4);
-
-      % Einheitskreis
-      \draw[blue!70, thick] (0,0) circle (1);
-
-      % Gerade durch (-1,0) mit y-Achsenabschnitt t
-      \draw[kGreen!40!black, thick] (-1.3,{\t*(-1.3+1)}) -- (1.3,{\t*(1.3+1)});
-
-      % Punkt (-1,0)
-      \fill[kGreen!40!black] (-1,0) circle (1.2pt);
-
-      % Klammer für t
-      \draw[decorate, decoration={brace, amplitude=4pt, mirror}, green!40!black, thick]
+  \begin{minipage}{0.39\textwidth}
+    \begin{center}
+      \begin{tikzpicture}[scale=1.25]
+        \def\t{0.65}
+        
+        % Achsen
+        \draw[black!70, ->] (-1.5,0) -- (1.6,0);
+        \draw[black!70, ->] (0,-1.2) -- (0,1.4);
+        
+        % Einheitskreis
+        \draw[blue!70, thick] (0,0) circle (1);
+        
+        % Gerade durch (-1,0) mit y-Achsenabschnitt t
+        \draw[kGreen!40!black, thick] (-1.3,{\t*(-1.3+1)}) -- (1.3,{\t*(1.3+1)});
+        
+        % Punkt (-1,0)
+        \fill[kGreen!40!black] (-1,0) circle (1.2pt);
+        
+        % Klammer für t
+        \draw[decorate, decoration={brace, amplitude=4pt, mirror}, green!40!black, thick]
         (0,0) -- (0,\t) node[midway, right=5pt] {$t$};
-    \end{tikzpicture}
+      \end{tikzpicture}
+    \end{center}
+  \end{minipage}
+  \hspace*{0.2cm}
+  \begin{minipage}{0.59\textwidth}
+    The slope of the line can be changed, which is represented by the parameter $t$. Find a representation of the other intersection of the line with the circle (in rational parameterization).
+  \end{minipage}
+  \begin{center}
+    \textcolor{gray}{------------------------------------------- 26.10.2026 --------------------------------------------} \\[0.3em]
+  \end{center} 
+
+  \paragraph{Solution via Breathing-Procedure:}\ \\
+  First thing we want is an equation of the line: 
+  % We know: y is related to x, t is the slope, we know p(0, -1) --> (x+1)  
+  \[y = t \cdot (x+1)\]
+  % y is becoming the slave of x because it is bind to it. 
+  Combining both equations, we get: \[x^2 + (t \cdot (x+1))^2 = 1\]
+  % Next Step: find $x$ in terms of $t$. 
+  We know the term $(x-1)$ and have the following factorization: 
+  \[(x + 1) \cdot (\ldots x + \ldots) = 0\] 
+\end{example} 
+\begin{example}[title = Example 1.3.3 (Quadratic Case) Continued]
+  Now determine the other factor:
+  \[(x + 1) \cdot ((1+t^2)\cdot x -1 + t^2) = 0\]
+  For $x \neq 0$, we have \[x = \frac{1-t^2}{1+t^2} \text{ and } y = t(x+1) = t \left(\frac{1-t^2}{1+t^2} + 1\right) = \frac{2t}{1+t^2}\] 
+  Double check: 
+  \begin{align*}
+    x^2 + y^2 & = \frac{(1-t^2)^2}{(1+t^2)^2} + \frac{4t^2}{(1+t^2)^2} \\
+              & = \frac{1-2t^2+t^4 + 4t^2}{(1+t^2)^2}\\
+              & = \frac{1+ 2t^2 + t^4}{(1 + t^2)^2} \\
+              & = 1
+  \end{align*}
+\end{example} 
+
+\begin{definition}[title = Definition 1.3.4 (Rational Functions)]
+  A rational function with coefficients in the field $k$ in the variables $x_1, \ldots, x_n$ is a formal quotient $\frac{f}{g}$ where $f, g \in k[x_1, \dots, x_n]$ 
+  and $g \neq 0$. The set of all rational functions is denoted by $k(x_1, \ldots, x_n)$ (round brackets). \\
+  
+  Two rational functions $\frac{f}{g}$ and $\frac{a}{b}$ are defined to be equal when $f \cdot b = a \cdot g$. \\
+
+  Rational functions can be added and multiplied as follows:
+\[\frac{f}{g} + \frac{u}{v} :=\frac{f \cdot v + g \cdot u}{g \cdot v}  \ \ \ \text{ and } \ \ \  \frac{f}{g} \cdot \frac{u}{v}:= \frac{f \cdot u}{g \cdot v} \]
+
+  for $f, u, g, v \in k[x_1, \dots, x_n], g \neq 0, v \neq 0$\dots \\
+
+  The above definitions are well-defined, because in the ring $k[x_1, \dots, x_n]$:
+  \[g \neq 0 \text{ and } v \neq 0 \Rightarrow g \cdot v \neq 0\] 
+  (This needs to be shown and it is not true in every ring.)
+\end{definition}
+
+\begin{remark}[title = Remark 1.3.5]
+  $k[x_1, \dots, x_n]$ is a field (which is great!). 
+\end{remark}
+
+\begin{definition}[title = Definition 1.3.6]
+  Let $V \subseteq k^n$ be a variety. We say that the expressions 
+  \[
+    x_1 = \frac{p_1(t_1, \ldots, t_m)}{q(t_1, \ldots, t_m)} , 
+    \vdots , 
+    x_n = \frac{p_n(t_1, \ldots, t_m)}{q(t_1, \ldots, t_m)}
+  \]
+  where $p_1, \ldots, p_n, q \in k[x_1, \dots, x_n] $ and $q \neq 0$ parameterize the variety $V$ if $V$ is the smallest variety w.r.t unclusion that contains the set 
+  \[\left\{\left( \frac{p_1(t_1, \ldots, t_m)}{q(t_1, \ldots, t_m)}, \ldots, \frac{p_n(t_1, \ldots, t_m)}{q(t_1, \ldots, t_m)} \right): a_1, \ldots, a_m \in k, q(a_1, \ldots, a_m) \neq 0 \right\}\] 
+
+  A variety that has such a parameterization (which is called rational) is called a \textit{rational variety}.
+\end{definition} 
+
+\begin{definition}[title = Definition 1.3.7]
+  The description of a variety $V$ by a system of finitely many equations $f_1 = \ldots = f_m = 0$ where $f_1, \ldots, f_m \in k[x_1, \dots, x_n]$ is called an 
+  \textit{implicit description} (this is our default description, it always exists by the definition of a variety).
+  \begin{center}
+    \scalebox{0.7}{%
+      \begin{tikzpicture}[
+        every node/.style={font=\itshape}, 
+        blob/.style={draw=black!40!black, line width=1pt, ellipse,
+                     minimum width=2.8cm, minimum height=1.5cm},
+        arr/.style={draw=black!40!black, line width=1pt, -{Stealth[length=3mm]}}
+      ]
+        \node[blob] (imp) at (0,0) {implicit};
+        \node[blob] (par) at (7,0) {parametric};
+      
+        \draw[arr] (imp.north east) to[bend left=25]
+              node[midway, above] {parametrization} (par.north west);
+        \draw[arr] (par.south west) to[bend left=25]
+              node[midway, below] {implicitization} (imp.south east);
+      
+        % "not unique" note
+        \draw[black!40!black, line width=1pt, double, double distance=1.5pt,
+              -{Implies[length=2mm]}] (-1.6,-1.8) -- (-1.1,-0.9);
+        \node[text=black!40!black] at (-1.6,-2.2) {not unique};
+      \end{tikzpicture}}
   \end{center}
-  The slope of the line can be changed, which is represented by the parameter $t$. Find a representation of the other intersection of the line with the circle (in rational parameterization).
+\end{definition} 
+
+\begin{example}[title = Example 1.3.8]
+  Bezier splines is a cursive given parameterically, whose $x$ and $y$ coordinates are parameterized as cubic polynomials. Normally written like this: 
+  \[\begin{bmatrix}
+    x \\ y
+  \end{bmatrix} = (1 - t)^3 P_0 + 3(1 - t)^2 t P_1 + 3(1 - t) t^2 P_2 + t^3 P_3\] 
+  where $P_0, \ldots, P_3 \in k^2$. 
+
+  One may assk for an implicit equation of such a curve.  
+    \begin{center}
+      \scalebox{0.8}{%
+        \begin{tikzpicture}[
+          x={(0.8cm,-0.6cm)}, y={(1cm,0.5cm)}, z={(0cm,1cm)},
+          every node/.style={font=\itshape},
+          ax/.style={draw=green!40!black, line width=1pt, -{Stealth[length=3mm]}},
+          curve/.style={draw=green!40!black, line width=1pt},
+          proj/.style={draw=blue!60, line width=1pt},
+          parr/.style={draw=blue!60, line width=1pt, -{Stealth[length=2.5mm]}}
+        ]
+          % Achsen
+          \draw[ax] (0,0,0) -- (0,0,5.6) node[left] {t};
+          \draw[ax] (0,0,0) -- (0,5,0) node[right] {y};
+          \draw[ax] (0,0,0) -- (4.5,0,0) node[below right] {x};
+        
+          \draw[curve] plot[variable=\s, domain=-1.4:1.65, samples=80, smooth]
+            ({2.5-\s*\s}, {1.8+\s*(\s*\s-1)}, {3-1.3*\s});
+        
+          \draw[proj] plot[variable=\s, domain=-1.4:1.4, samples=80, smooth]
+            ({2.5-\s*\s}, {1.8+\s*(\s*\s-1)}, 0);
+        
+          \foreach \s in {-1,0,1,1.3} {
+            \draw[parr] ({2.5-\s*\s}, {1.8+\s*(\s*\s-1)}, {3-1.3*\s})
+                     -- ({2.5-\s*\s}, {1.8+\s*(\s*\s-1)}, 0);
+          }
+        \end{tikzpicture}
+      }
+    \end{center}
+  Making things implicit $\leadsto$ projection
 \end{example}
+
+\begin{remark}[title = Remark 1.3.9]
+  In $k^n$ one can define an affine subspace by a linear system as $\{x:Ax = b\}$ where $Ax = b$ is a linear system over $k$ and parametrically as $\{U \cdot t + v: t \in k^m\}$, where $U$ and $v$ are 
+  a matrix reps. a vector over $k$. So, we have a linear version of our tasks. \\ 
+  % TODo: bild 3  
+  Both tasks are solvable with Gaussian Elimination.
+\end{remark} 
+
+\clearpage
+
+\begin{exercise}[title = Exercise 1.3.10]
+  \begin{enumerate}
+    \item Why is the product of two non-zero polynomials in $k[x_1, \dots, x_n]$ a non-zero polynomial? 
+    \paragraph{Solution:} 
+    \item Find an implicit description of the parametric curve $x = \frac{t}{t+t^2}$ and $y = 1 - \frac{1}{t^2}$. 
+    \paragraph{Solution:} 
+    \item Justify Remark 1.3.9. 
+    \paragraph{Solution:} 
+    \item Find a rational representation of the sphere $V(x^2 + y^2 + z^2 - 1)$. 
+    \paragraph{Solution:} 
+    \item Find a parametric description of the variety $V(y^2 - x^2 + x^3)$. 
+    \paragraph{Solution:} 
+    \item Implicitize 
+    \begin{align*}
+      x_1 & = t_1 + t_2 \\
+      x_2 & = t_1 + 2t_2 \\ 
+      x_3 & = 2 t_1 + t_2 \\ 
+      x_4 & = t_1 - t_2
+    \end{align*} 
+    Where $t_1, t_2$ are parameters.
+    \paragraph{Solution:} 
+   \end{enumerate}
+   The field is $k = \mathbb{R}$. 
+\end{exercise} 
+
