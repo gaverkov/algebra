@@ -1,0 +1,22 @@
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {0}The Very Basics}{2}{section.0}%
+\contentsline {section}{\numberline {1}Algebra, Geometry and Algorithms}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Polynomials and the Affine Space}{3}{subsection.1.1}%
+\contentsline {paragraph}{\nonumberline Proof:}{6}{paragraph*.11}%
+\contentsline {paragraph}{\nonumberline Proof:}{8}{paragraph*.13}%
+\contentsline {paragraph}{\nonumberline Solution:}{8}{paragraph*.15}%
+\contentsline {paragraph}{\nonumberline Solution:}{8}{paragraph*.17}%
+\contentsline {subsection}{\numberline {1.2}Affine Varieties}{9}{subsection.1.2}%
+\contentsline {paragraph}{\nonumberline Proof:}{11}{paragraph*.19}%
+\contentsline {subsection}{\numberline {1.3}An Example of a Topic that involves Varieties and Polynomials: Parametrization and Implicitization}{12}{subsection.1.3}%
+\contentsline {paragraph}{\nonumberline Solution:}{12}{paragraph*.21}%
+\contentsline {paragraph}{\nonumberline Solution via Breathing-Procedure:}{12}{paragraph*.23}%
+\contentsline {subsection}{\numberline {1.4}Ideals}{16}{subsection.1.4}%
+\contentsline {paragraph}{\nonumberline Proof:}{16}{paragraph*.37}%
+\contentsline {paragraph}{\nonumberline Proof:}{18}{paragraph*.39}%
+\contentsline {paragraph}{\nonumberline Proof:}{18}{paragraph*.41}%
+\contentsline {paragraph}{\nonumberline Proof:}{18}{paragraph*.43}%
+\contentsline {paragraph}{\nonumberline Proof:}{19}{paragraph*.45}%
+\contentsline {subsection}{\numberline {1.5}Polynomials in one variable}{20}{subsection.1.5}%
+\contentsline {paragraph}{\nonumberline Proof:}{20}{paragraph*.49}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

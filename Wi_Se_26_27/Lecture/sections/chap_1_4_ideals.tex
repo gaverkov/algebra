@@ -169,6 +169,143 @@ One can view the variety $V(f_1, \ldots, f_s)$ not as a function of $(f_1, \ldot
     \begin{enumerate}
       \item $V = \{(0,0)\}$ variety in $k^2$. \[I(V) = \{f \in k[x,y] \mid f(0,0) = 0\} = \langle x, y \rangle\] 
       Polynomials in the two variabeles: \[\sum_{i, j} c_{ij} x^i y^j \quad \Rightarrow f(0,0) = c_{0,0}\]
-    
     \end{enumerate}
 \end{example}
+\vspace{0.5em}
+\begin{center}
+  \textcolor{gray}{------------------------------------------- 02. and 03. 11.2026 --------------------------------------------} \\[0.3em]
+\end{center}
+\vspace{0.3em} 
+
+\textbf{Short Recap} 
+
+\begin{center}
+    Variety $\quad \Leftrightarrow \quad$ Ideal
+\end{center}
+
+\[X \subseteq k^n \quad \mapsto \quad I(X) = \{f \in k[x_1, \dots, x_n]: f \text{ vanishes on } X\}\] 
+\[V(f_1, \ldots, f_m) = \{a \in k^n: f_1(a) = \ldots = f_m(a) = 0\}\] 
+\[\langle f_1, \ldots, f_m \rangle \quad \mapsto \quad V(f_1, \ldots, f_m) \subseteq k^n\quad \mapsto \quad \underbrace{I(V(f_1, \ldots, f_m))}_{\text{The set of polynomials, that vanish whenever the polynomials} f_1, \ldots, f_m \text{vanish.}}\]
+
+One would frequently study a variety $V \subseteq k^n$ by studying the respective ideal $I(V)$. 
+
+\begin{lemma}[title = Lemma 1.4.10]
+    For $f_1, \ldots, f_s \in k[x_1, \dots, x_n]$, one has $\langle f_1, \ldots, f_s \rangle \subseteq I(V(f_1, \ldots, f_s))$ Moreover, there exist choices of $f_1, \ldots, f_s$ where whis inclusion is strict. 
+
+    \paragraph{Proof:} \[g \in \langle f_1, \ldots, f_s \rangle \Leftrightarrow g = f_1 \cdot h_1 + \ldots + f_s \cdot h_s\]
+    for some $h_1, \ldots, h_s \in k[x_1, \dots, x_n]$
+\end{lemma}
+\clearpage
+
+\begin{lemma}[title = Lemma 1.4.10 continued]
+    \begin{align*}
+        g \in I(V(f_1, \ldots, f_s)) & \Leftrightarrow g \text{ vanishes on } V(f_1, \ldots, f_s) \\ 
+                                     & \Leftrightarrow g(a) = 0 \text{ whenever } f_1(a)  = \ldots = f_s(a) = 0, \text{ for } a \in k^n. \\
+    \end{align*}
+    This explains the inclusion in the assertion. For strict inclusions, consider $k[x]$ with $V(x^2)$: 
+    \begin{itemize}
+      \item $\langle x^2 \rangle$ = set of all polynomials that do not have constant and linear terms. 
+      \item $V(x^2) = \{0\} \quad \Rightarrow \quad I(V(x^))$ = set of polynomials that do not have the constant term.   
+    \end{itemize}
+    Consequently, $x \in I(V(x^2))$ but $x \in \langle x^2 \rangle$. 
+
+    \begin{flushright}
+      $\Box $
+    \end{flushright}
+\end{lemma} 
+
+The so-called \textit{Nullstellensatz} clarifies the relation of $I(V(f_1, \ldots, f_s))$ to $\langle f_1, \ldots, f_s \rangle$ in the algebraic term in the 
+case when the field $k$ is algebraically closed (for example $k = \mathbb{C}$).
+
+\begin{proposition}[title = Proposition 1.4.11]
+    Let $V,W \subseteq k^n$ be affine Varieties. Then the following hold: 
+    \begin{itemize}
+      \item[(i)] $V \subseteq W \Rightarrow I(V) \supseteq I(W)$. 
+      \item[(ii)] $V = W \Leftrightarrow I(V) = I(W)$. 
+    \end{itemize} 
+
+    \paragraph{Proof:}  
+
+    \begin{itemize}
+      \item[(i)] follows direktly from our definition of $I(X)$ for a set $X \in k^n$. 
+      \item[(ii)] $V = W \quad \Rightarrow I(V) = I(W)$ is trivial. \\
+      
+      Conversely, assume $I(V) = I(W)$. Let $V = V(f_1, \ldots, f_s)$ and $W = V(g_1, \ldots, g_t)$ mit $f_1, \ldots, f_s, g_1, \ldots, g_t \in k[x_1, \dots, x_n]$.
+
+      Equality $I(V) = I(W)$ means that every polynomial vanishing on $V$ also vanishes on $W$ and vice versa. 
+      \[f_1, \ldots, f_s \text{ vanishes on} V \Leftrightarrow g_1, \ldots, g_t \text{ vanishes on} W\] 
+      So, $W \subseteq V(f_1, \ldots, f_s) = V$. Exchanging the roles of $V$ and $W$, we also have the other inlcusion $V \subseteq W$. 
+      \[\Rightarrow V = W\]
+    \end{itemize}
+      \begin{flushright}
+        $\Box $
+      \end{flushright}
+\end{proposition}
+
+\begin{center}
+\begin{tikzcd}[remember picture, row sep=large, column sep=huge]
+  f_1 = \dots = f_s = 0 \arrow[r] \arrow[d]
+  & |[alias=ideal]| \langle f_1, \dots, f_s \rangle
+    \arrow[d, phantom, "\supseteq" description] \\
+  V(f_1, \dots, f_s) \arrow[r]
+  & |[alias=iv]| I\bigl(V(f_1, \dots, f_s)\bigr)
+\end{tikzcd}
+
+\begin{tikzpicture}[remember picture, overlay]
+  \draw[kGreen, <->, shorten <=1pt, shorten >=1pt]
+    let \p1=(ideal.east), \p2=(iv.east), \n1={max(\x1,\x2)+4pt} in
+    (\n1,\y1) to[bend left=60]
+      node[midway, right=2pt, align=left, font=\scriptsize, text=kGreen]
+        {Nullstellensatz\\ (für $k$ algebraisch\\ abgeschlossen)}
+    (\n1,\y2);
+\end{tikzpicture}
+\end{center}
+
+\begin{exercise}[title = Exercise 1.4.12]
+    \begin{minipage}{0.39\textwidth}
+        \begin{tikzpicture}[scale=1, line cap=round]
+          \def\r{1.5}
+          % Schnittwinkel: sin(2θ) = 1/r²
+          \pgfmathsetmacro{\t}{0.5*asin(1/(\r*\r))}
+          \pgfmathsetmacro{\tb}{90-\t}
+          \pgfmathsetmacro{\tc}{180+\t}
+          \pgfmathsetmacro{\td}{270-\t}
+        
+          % Achsen
+          \draw[kGreen, -stealth] (-2,0) -- (2,0) node[below left] {$x$};
+          \draw[kGreen, -stealth] (0,-2) -- (0,2) node[below left] {$y$};
+        
+          % Kreis
+          \draw (0,0) circle (\r);
+        
+          % Hyperbel 2xy - 1 = 0 (zwei Äste)
+          \draw[thick, domain=0.27:1.85, samples=80, smooth, variable=\x]
+            plot ({\x}, {1/(2*\x)});
+          \draw[thick, domain=-1.85:-0.27, samples=80, smooth, variable=\x]
+            plot ({\x}, {1/(2*\x)});
+        
+          % Schnittpunkte (je zwei pro Ast)
+          \foreach \a in {\t, \tb, \tc, \td}
+            \fill (\a:\r) circle (1.2pt);
+        \end{tikzpicture}
+    \end{minipage}
+    \hspace*{0.2cm}
+    \begin{minipage}{0.59\textwidth}
+        \begin{enumerate}
+          \item Consider the drawing on the left.
+          \begin{align*}
+            \left\{
+                \begin{aligned}
+                    x^2 + y^2 - 1 &= 0 \\ 
+                    2xy - 1 &= 0
+                \end{aligned}\right.
+            \end{align*} 
+            Find a polynomial $f(x) \in k[x] \backslash \{0\}$ such that the equation $f(x) = 0$ follows from this system. 
+            
+            Is $f \in \langle x^2 + y^2 -1, 2xy -1 \rangle$?
+            \item $k = \mathbb{F}_2, K^2$. What is $I(k^2)$? Describe $I(k^2)$ by a set of generators.
+        \end{enumerate}
+    \end{minipage}
+  \paragraph{Solution:} 
+\end{exercise}
+

@@ -1,0 +1,60 @@
+\subsection{Polynomials in one variable}
+
+\begin{definition}[title = Definition 1.5.1]
+    For $f = a_o + a_1 x + \ldots + a_m x^m \in k[x]\backslash \{0\}$ with $a_0, \ldots, a_m \in k$ and $a_m \neq 0$, we call $a_mx^m$ the \textit{leading term of $f$}.
+
+    Notation: $LT(f)$
+\end{definition} 
+
+\begin{proposition}[title = Proposition 1.5.2]
+  For every choice of $f \in k[x]$ and $g \in k[x]\backslash \{0\}$ there exisyts a unique decomposition \[f = q \cdot g + r\] with $q,r \in k[x]$ and 
+  $\deg r < \deg g$. Furthermore, there exists an algrithm that calculates $g$ and $r$ for given $f$ and $g$.
+
+  \paragraph{Proof:}  In our algorithm we start with 
+    \[\underbrace{q =0}_{\text{ quotient in progress }} \text{ and } \underbrace{r = f}_{\text{ remainder in progress }}\] 
+
+    We will maintain the equality $f = g \cdot q + r$ as the invariant, making the $\deg r$ smaller in each iteration until the condition $\deg r < \deg g$ is satisfied. 
+
+    If $\deg r < \deg g$, then we can terminate. Otherwise, we want to update $r$ using $g$ to make $r$ smaller. 
+
+    \[\deg r \geq \deg g  \implies \\
+        f  = g \cdot \underbrace{q + \frac{LT(r)}{LT(g)}}_{\text{new } q} + \underbrace{r - \frac{LT(r)}{LT(g)} \cdot g}_{\text{new } r}\]
+    by taking into account that $f = g \cdot q + r$. 
+
+    This leads to: 
+    \begin{algorithm}[title = Univariate Division Algorithm]
+        \textbf{Assumption}: $f,g \in k[x], g \neq 0$  \\
+        \textbf{Result}: quotient $q$ and the remainder $r$ of the long division of $f$ by $g$. 
+\begin{lstpseudo}
+r:=f    % Remainder in progress 
+q:=0    % Quotient in progress 
+
+while deg r >= deg g:
+    T := LT(r)/LT(g)  
+    q := q + T   % update of the quotient in progress 
+    r := r - T * g  % update of the remainder in progress  
+ 
+return (q,r)
+\end{lstpseudo}
+    \end{algorithm}
+
+    The algorithm is correct and is terminating in finitely many steps, because we maintain the invariant $f = g \cdot q + r$ and the updates of $q$ and  $r$ are such 
+    that $\deg r$ gets strickly smaller with each iteration. \\
+
+    It remains to show the uniqueness of the decomposition. 
+
+    Assume $f = q \cdot g+r = g \cdot Q + R$ with $q,r,Q,R \in k[x]$ and $\deg r < \deg g$ and $\deg R < \deg g$. 
+    
+    If $q = Q$, then $r = f-g \cdot q = f -g \cdot Q = R$ and so $r = R$. 
+
+    If $q \neq Q$, then $0 = f -f = (g \cdot Q - R) - (g \cdot q -r) = g \cdot (Q -q) + r - R$ 
+
+    \[\quad \underbrace{R - r}_{degree < \deg g} = \underbrace{g}_{\deg g} \cdot \underbrace{(Q- q)}_{\neq 0}\]
+    
+    The left-hand side has degree $< \deg g$, but the right-hand side has degree $\geq \deg g$, which is a contradiction.  
+
+    \[\Longrightarrow Q = q\]
+    \begin{flushright}
+      $\Box $
+    \end{flushright}
+\end{proposition}

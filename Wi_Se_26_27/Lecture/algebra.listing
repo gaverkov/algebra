@@ -1,0 +1,4 @@
+R = PolynomialRing(QQ, 'x,y,t')
+x,y,t = R.gens()
+I = R.ideal(x -(t - t^2 + 3*t^3 - t^10), y - (t + t^5 - t^7))
+I.elimination_ideal(t) <-- done with Gröbner bases
