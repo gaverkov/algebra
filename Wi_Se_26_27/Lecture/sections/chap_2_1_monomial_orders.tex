@@ -1,0 +1,193 @@
+\subsection{Monomial Orders}  
+What do we need to do to carry over the long division and gcd algorithms to multivariate setting? 
+
+In the case of on variable, our monomials were naturally ordered by degree. The leading term was defined based on this order and long division doesn't need anything but 
+the access to the leading term function and the operations + and $\cdot$ on $k[x]$. \\[0.3em]
+Say, how to order $x^2y, \ xy^2$ and $xyz$? 
+
+The answer is: there is no unique way to do that. In the multivariate vase, there are many ways to order monomials. Still, we need to define what a reasonable ordering is. 
+Let's first clarify what if means to order a set.  
+
+\begin{definition}[title = Definition 2.1.1]
+  Consider a binary relation $\preccurlyeq$ (\textit{\textcolor{airforceblue}{curly $\leq$}}) on a set $M$. We say that $\preccurlyeq$ is a non-strict total order on $M$ if the following hold:
+  \begin{itemize}
+    \item Antisymmetry: \[x \succcurlyeq y, y \succcurlyeq x \Rightarrow x = y, \quad \forall x,y \in M\] 
+    \item Transitivity: \[x \succcurlyeq y, y \succcurlyeq z \Rightarrow x \succcurlyeq z, \quad \forall x,y,z \in M\]
+    \item Totality: \[x \succcurlyeq y \text{ or } y \succcurlyeq x, \quad \forall x,y \in M\]
+  \end{itemize} 
+\end{definition}  
+
+\begin{center}
+  \begin{addmargin}[0.6cm]{0.6cm}
+      \textit{\textcolor{airforceblue}{For a finite $M$ it is like listing the elements of $M$ in some order in an array, but for an infinite $M$, such an orering is not 
+      necessarily resembling an infinite array. Eg.}}
+    \[\underbrace{\bullet \cdot \cdot \cdot \cdot \cdot \cdot \cdot}_{\mathclap{\substack{\text{infinitely} \\ \text{many}}}} \ \ \underbrace{\bullet \cdot \cdot \cdot \cdot \cdot \cdot \cdot}_{\mathclap{\substack{\text{infinitely} \\ \text{many}}}}\ \ \underbrace{\bullet \cdot \cdot \cdot \cdot \cdot \cdot \cdot}_{\mathclap{\substack{\text{infinitely} \\ \text{many}}}} \dots\]
+     \textit{\textcolor{airforceblue}{The above picture sketches a situation where a linear ordering is an infinite concatenation of infinite arrays.}}
+  \end{addmargin}
+\end{center}
+
+Having a non-strict total order $\preccurlyeq$ on $M$, we can also consier the respective strict total order $\prec$ given by 
+\[x \prec y \Leftrightarrow x \preccurlyeq y, x \neq y\]
+Clearly, $\preccurlyeq$ determines $\prec$ and, vice versa, $\prec$ determines $\preccurlyeq$. So, it is enough to descibe one of them when we totally orer some given set $M$. \\
+
+We want to order the set of all monomials in \[x = (x_1, \ldots, x_n): \quad \{x^{\alpha} \mid \alpha \in \mathbb{Z}^n_{\geq 0}\}\] 
+
+Monomial are determined by their exponent vector. This means, we want to totally order the set $\mathbb{Z}^n_{\geq 0}$ of all exponent vectors. \\[0.3em] 
+For $n = 1$, our ordering was: 
+\[x^0 \prec x^1 \prec x^2 \prec x^3 \prec \cdots\]
+corresponding to $1 < 2< 3< \dots$. 
+
+The leading term LT(f) of a univariate polynomial $f \in k[x]\backslash\{0\}$ is the term of the larges monimal with respect to the above order. The long division algorithm 
+in the univariate case multiplies polynomials with terms. 
+
+Therefore, it relies on the following property: \[x_{\alpha} \succ x^{\beta} \Rightarrow x^{\alpha} \cdot x^{\gamma} \succ x^{ \beta} \cdot x^{\gamma} \quad ( \alpha, \beta, \gamma \in \mathbb{Z}_{\geq 0}) \] 
+That means, the order is preserved under muliplication with any monimial. \\[0.3em]
+There is yet another crucial property: 
+
+When we carry out the long division the degree of the remainder $r$ in progress gets smaller in each iteration and the ermination criterion $\deg \ r < \deg \ g$ is 
+achieved after finitely many iterations. For the monomial orders in the multivariate case, we need a condition that would guarantee \underline{finite termination}.
+The above discussion provides motivation for the following definition\dots
+
+
+\begin{definition}[title = Definition 2.1.2]
+    A strict monomial order $\succ$ on $\mathbb{Z}^n_{\geq 0}$ is binary relation $\mathbb{Z}^n_{\geq 0}$ such that: 
+    \begin{itemize}
+      \item[(i)] $\succ$ is astrict total order on $\mathbb{Z}^n_{\geq 0}$ 
+      \item[(ii)] If $\alpha, \beta, \gamma \in \mathbb{Z}^n_{\geq 0}$, then $\alpha \succ \beta$ implies $\alpha + \gamma \succ \beta + \gamma$  
+      \item[(iii)] Every non-empty subset  $A$ of $\mathbb{Z}^n_{\geq 0}$ has the minimal element with respect to $\succ$, which is an elemend $\beta \in A$ satifying $\alpha \succ \beta$ for all $\alpha \in A, \alpha \neq \beta$. 
+    \end{itemize}
+\end{definition}
+ 
+By identifying $\mathbb{Z}^n_{\geq 0}$ with $\{x^{\alpha}\mid \alpha \in \mathbb{Z}^n_{\geq 0}\}$ we also speak about monomial orders on $\{x^{\alpha}\mid \alpha \in \mathbb{Z}^n_{\geq 0}\}$. 
+
+\begin{remark}[title = Remarks]
+  \begin{itemize}
+    \item[(i)] guarantess that any two monomials are comparable 
+    \item[(ii)] guarantees compatibility with the multiplication by a monomial 
+    \item[(iii)] guarantees that the multivariate long division (to be introduced) terminates. ONly infinite sets $A$ matter in (iii), as finite one have the minimum with respect to any linear order.  
+  \end{itemize}
+\end{remark}
+
+\begin{remark}[title = Remark]
+  A set with a total order is called totally ordered (\textit{\textcolor{airforceblue}{surprise!! :)}}). It's up to use to choose if you want to define the strict or non-strict one.
+\end{remark}
+
+\begin{definition}[title = Definition 2.1.3]
+  A descending chain of a totally ordered set $(M, \succ)$ is a sequence of element that satisfy $a_0 \succ a_1 \succ a_2 \succ \cdots$. A chain can be finite of countably infinite.
+\end{definition}
+
+\begin{lemma}[title = Lemma 2.1.4]
+  Let $(M, \succ)$ be a totally ordered set. The the following are equivalent: 
+  \begin{itemize}
+    \item[(i)] Every descending chain of $M$ is finite.
+    \item[(ii)] Every non-empty subset $A$ of $M$ has the minimal element with respect to the order $\succ$.  
+  \end{itemize}
+
+  \paragraph{Proof:} It's enough to verify the contraposition $\overline{(i)} \Leftrightarrow \overline{(ii)}$ \\[0.3em] 
+  If some non-semtpy set $A \subseteq M$ has no minimal element with respect to $\succ$, we can pick any $a_0 \in A$. Since $a_0$ is not minimal in $A$, there exits $a_1 \in A$ with $a_0 \succ a_1$. 
+  And so on to infinity. We get the infinite chain $a_0 \succ a_1 \succ a_2 \succ \cdots$ of elements. \\[0.3em]
+  Conversely, if $a_0 \succ a_1 \succ a_2 \succ \cdots$ is an infinite chain, then the set $\{a_i\mid i \in \mathbb{N}_0\}$ has no minimal element because for every $a_i$, the 
+  element $a_{i +1}$ is even smaller. 
+    \begin{flushright}
+      $\Box $
+    \end{flushright}
+\end{lemma}
+
+\clearpage
+
+\begin{center}
+  \begin{addmargin}[0.6cm]{0.6cm}
+    \textit{\textcolor{airforceblue}{There are infinitely many choices of different monomial orders. We probably don't have the time to consider all of them :). So,
+    let's stick to the following three that turn out to be rather useful.}}
+  \end{addmargin}
+\end{center}
+
+\begin{definition}[title = Definition 2.1.5]
+  {
+  \centering
+  \begin{tabular}{r l}
+      lex = & lexicographic order \\ 
+      grlex = & graded lexicographic order (deglex is another common abbreviation) \\
+      grevlex = & graded reverse lexicographic order
+  \end{tabular}
+  } \\[0.3em]
+
+  For $\alpha = ( \alpha_1, \ldots, \alpha_n), \beta = (\beta_1, \ldots, \beta_n) \in \mathbb{Z}^n_{\geq 0}$
+
+  \begin{align*}
+      \alpha \succ_{lex} \beta \quad :\Leftrightarrow \quad & \alpha_1 = \beta_1, \ldots, \alpha_{i-1} = \beta_{i-1}, \alpha_i > \beta_i \text{ for some } i \in \{1, \ldots, n\} \\
+      \intertext{\hspace*{2cm} \textit{\textcolor{airforceblue}{dictionary order: in out dictionary all words have length $n$ and the alphabet is $\mathbb{Z}_{\geq 0}$} }}
+      \alpha \succ_{grlex} \beta \quad :\Leftrightarrow \quad & |\alpha| > |\beta| \text{ or } |\alpha| = |\beta|, \alpha \succ_{lex} \beta \\
+      \intertext{\hspace*{2cm} \textit{\textcolor{airforceblue}{order by total degree, ot equal tie break by lex}}} 
+      \alpha \succ_{grevlex} \beta \quad :\Leftrightarrow \quad & |\alpha| > |\beta| \text{ or } \textcolor{magenta}{ \alpha_i < \beta_i}, \alpha_{i+1} = \beta_{i+1}, \ldots, \alpha_n = \beta_n \text{ for some } i \in \{1, \ldots, n\} 
+    \intertext{\hspace*{2cm} \textit{\textcolor{airforceblue}{order by total degree, if equal} \textcolor{magenta}{unusual} \textcolor{airforceblue}{tie break.}}} 
+  \end{align*}
+\end{definition}
+
+\begin{remark}[title = Remark]
+  lex and grlex look rather natural (\textit{\textcolor{airforceblue}{right?!?}}). lex can be used for elemination. glex has a better control of the number of iterations in the long division.
+  grevlex is even besser in this respect. 
+\end{remark}
+
+\vspace{0.3em} 
+\begin{center}
+  \textcolor{gray}{------------------------------------------- 09.11.26 --------------------------------------------} \\[0.3em]
+\end{center}
+\vspace{0.3em} 
+
+\[
+  \langle g_1, \ldots, g_s \rangle = \langle \underbrace{gcd(g_1, \ldots, g_s)}_{\text{definition of gcd in terms of ideals}} \rangle 
+\]
+
+\begin{proposition}[title = Proposition 2.1.6]
+    $\succ_{lex}, \succ_{grlex}$ and $\succ_{grevlex}$ are all monomial orders on $\mathbb{Z}^n_{\geq 0}$
+
+    \paragraph{Proof:} 
+    We will do the proof for $\succ_{lex}$ and leae the two others as exercises. \\[0.3em]
+    Clearly, $\succ_{lex}$ is a total order. 
+
+    For $\alpha, \beta, \gamma \in \mathbb{Z}^n_{\geq 0}$, one has $\alpha \succ_{lex} \beta \quad \Rightarrow \alpha + \gamma \succ_{lex} \beta + \gamma$. It remains t show 
+    that $\succ_{lex}$ is a well ordering. Consider any nonßempty subset $A$ of $\mathbb{Z}^n_{\geq 0}$.  
+
+    Let's consider \[A_1 = \{\alpha_1 \mid (\alpha_1, \ldots, \alpha_n) \in A\} \subseteq \mathbb{Z}_{\geq 0}\]
+    Let $\beta_1 = \min A_1$. 
+
+    Let's introduce \[ A_2 := \{\alpha_2 \mid (\beta_1, \alpha_2, \ldots, \alpha_n) \in A\} \subseteq \mathbb{Z}_{\geq 0}\] Let $\beta_2 = \min A_2$ and so on 
+    iteratively. 
+    \[A_t =\{ \alpha_t \mid (\underbrace{beta_1, \ldots, \beta_{t-1}}_{fixed}, \alpha_t, \ldots, \alpha_n) \in A\}, \beta_t = \min A_t\quad (t = 1, \ldots, n)\]
+    By construction, $(\beta_1, \ldots, \beta_n) = \min A$. 
+
+    \begin{flushright}
+      $\Box $
+    \end{flushright}
+\end{proposition}
+
+\begin{remark}[title = Remark]
+    For each of the three orders above, there are $n!$ versions of it, depending on the sorting of the vraiables $x_1, \ldots, x_n$. 
+\end{remark}
+
+\begin{definition}[title = Definition 2.1.7]
+    Let $f \in k[x_1, \dots, x_n]\backslash\{0\}, \ f = \sum_{\alpha} c_{\alpha} x^{\alpha}$ and let $\succ$ be a monomial order on $\mathbb{Z}^n_{\geq 0}$. 
+    With respect to this order, we have the following notions:
+    
+    \begin{itemize}
+      \item[(i)] $mdeg\ f$, the multidegree of $f$, is the maximum $\alpha$ over all $\alpha$ such that $c_{\alpha} = 0$. 
+      \item[(ii)] $LC(f) = c_{mdeg\ f}$ is the leading coefficient. 
+      \item[(iii)] $LM(f)x^{mdeg\ f}$ is the leading monomial  
+      \item[(iv)] $LT(f) = LC(f) \cdot LM(f) = c_{mdeg\ f} \cdot x^{mdeg\ f}$ is the leading term.
+    \end{itemize}
+    We used the convention $mdeg(0) = - \infty \prec \alpha$ (for $\alpha \in \mathbb{Z}^n_{\geq 0}$).
+\end{definition}
+
+In what follows, we will assume that an underlying monomial order has been fixed. 
+
+\begin{lemma}[title = Lemma 2.1.8]
+    Let $f, g \in k[x_1, \dots, x_n]\backslash\{0\}$. Then 
+    \begin{itemize}
+      \item[(i)] $mdeg (f \cdot g) = mdeg(f) + mdeg(g)$
+      \item[(ii)] $mdeg (f + g) \preceq \max\{mdeg(f), mdeg(g)\}$
+      \item[(iii)] $mdeg(f) \neq mdeg(g) \Rightarrow mdeg(f + g) = \max\{mdeg\ f, mdeg g \}$  
+    \end{itemize} 
+
+    \paragraph{Proof:} Straight forward. 
+\end{lemma}
