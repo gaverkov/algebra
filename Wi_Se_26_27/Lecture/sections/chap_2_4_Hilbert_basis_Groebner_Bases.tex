@@ -1,0 +1,256 @@
+\subsection{THE HILBERT BASIS THEOREM AND GRÖBNER BASES} 
+
+\includegraphics[width = \textwidth]{pics/hilbert_groebner_schriftzug.png}
+\textit{\textcolor{airforceblue}{WE HAVE TO IMPROVE THE MARKETING!}} 
+
+\begin{definition}[title = Definition 2.4.1]
+    Let $I$ be a non-zero ideal in our $k[x_1, \dots, x_n]$. Let \[LT(I) = \{LT(f): f \in I\backslash \{0\}\}\] and \[LM(I) = \{LM(f): f \in I\backslash \{0\}\}.\]
+    Then the monomial ideal $\langle LT(I) \rangle = \langle LM(I) \rangle$ is called the \textit{initial ideal} of the ideal $I$. \\[0.3em]
+    (Remember: it depends on the monomial order.) 
+\end{definition}
+
+\begin{example}[title = Reality Check Example 2.4.1a]
+    $ I = \langle x^2 - 3x +1 \rangle$. What is the initial ideal of $I$? \\
+
+    It is $\langle x^2, x^3, x^4, x^5, \ldots \rangle = \langle x^2 \rangle$.
+\end{example} 
+
+\begin{remark}[title = Remark 2.4.1b]
+  If $I = \langle f_1, , f_s \rangle$ where $f_1, \ldots, f_s \in k[x_1, \dots, x_n]$ the ideal $\langle LT(f_1), \ldots, LT(f_s) \rangle$ is not necessarily the initial ideal of $I$. 
+\end{remark}
+
+\begin{example}[title = Example 2.4.2]
+    
+    \begin{minipage}{0.49\textwidth} 
+        \begin{align*}
+            \textcolor{kGreen}{f_1} &\textcolor{kGreen}{= x^3 - 2xy} \\
+            \textcolor{red}{f_2}    &\textcolor{red}{= x^2y - 2y^2 + x}
+        \end{align*}
+        w.r.t the graded lex order and 
+        \begin{align*} 
+            LT(f_1) &= x^3 \\
+            LT(f_2) &= x^2y
+        \end{align*}
+    \end{minipage}
+    \hspace*{0.2cm}
+    \begin{minipage}{0.49\textwidth}
+        \begin{tikzpicture}[scale = 0.8]
+            
+            \fill[yellow!30] (2,1) -- (2,4) -- (4.5,4) -- (4.5,0) -- (3,0) -- (3,1) -- cycle;
+
+            \draw[->, thick] (0,0) -- (4.4,0);
+            \draw[->, thick] (0,0) -- (0,4.4);  
+            
+            \foreach \i in {0,...,4} {
+                \draw (\i,0.08) -- (\i,-0.08) node[below] {\i};
+                \draw (0.08,\i) -- (-0.08,\i) node[left] {\i};
+            } 
+            
+            \fill[red] (1,0) circle (2.5pt);
+            \fill[red] (0,2) circle (2.5pt);
+            \fill[red] (2,1) circle (2.5pt) node[above right] {$LT(f_2)$}; 
+
+            \fill[kGreen] (1,1) circle (2.5pt);
+            \fill[kGreen] (3,0) circle (2.5pt) node[above right] {$LT(f_1)$}; 
+
+            \fill[blue] (2,0) circle (2.5pt) node[above right] {$x^2$};
+        \end{tikzpicture}
+    \end{minipage}
+    Now take $-y \cdot f_1 + x \cdot f_2$:
+        \[ -y \cdot (x^3 - 2xy) + x \cdot (x^2y - 2y^2 + x) = -yx^3 + 2xy^2 + x^3y - 2xy^2 + x^2 = x^2\] 
+
+    \begin{addmargin}[1cm]{0cm}
+        $\Rightarrow \quad \langle LF(f_1), LT(f_2) \rangle = \langle x^3, x^2y \rangle$ \\ 
+        $\Rightarrow \quad x^2$ is in the initial ideal $\langle f_1, f_2 \rangle$ but not in $\langle x^3, x^2y \rangle$
+    \end{addmargin}
+\end{example}
+
+
+\begin{center}
+  \textcolor{gray}{------------------------------------------- 17.11.26 --------------------------------------------} \\[0.3em]
+\end{center}
+\vspace{0.3em}
+
+\textbf{Recap:} $\{0\} \neq I \subseteq k[x_1, \dots, x_n] \Rightarrow \langle LM(I) \rangle = \underbrace{\{LM(f) \mid f \in I \backslash \{0\}\}}_{\text{monomial ideal}}$ is called the \textit{initial ideal} 
+
+\begin{proposition}[title = Proposition 2.4.3]
+    Let $I \subseteq k[x_1, \dots, x_n]$ be a non-zero ideal. Then the initial ideal of $I$ is finitely generated, that is, $\langle LM(I)\rangle = \langle LM(g_1), \ldots, LM(g_s) \rangle$ for some
+    finitely many $g_1, \ldots, g_s \in I \backslash \{0\}$. 
+
+    \paragraph{Proof:} This follows Dickson's Lemma (2.3.8). Let $A = \{\alpha \mid \alpha =  mdeg(f), f \in I \backslash \{0\}\}$. 
+    Then $\langle LM(I) \rangle = \langle x^{\alpha} \mid \alpha \in A \rangle$. We have shown that $A + \mathbb{Z}^n_{\geq 0} =  B + \mathbb{Z}^n_{\geq 0}$ for some finite $B \subseteq A$. This implies: 
+    \[\langle LM(I) \rangle = \langle x^{\alpha} \mid \alpha \in A \rangle =  lin_k \{x^{\gamma} \mid \gamma \in A + \mathbb{Z}^n_{\geq 0}\} = lin_k\{x^{\gamma} \mid \gamma \in B + \mathbb{Z}^n_{\geq 0}\}\] 
+    \[= \langle x^{\beta} \mid \beta \in B \rangle  = \langle LM(g_1), \ldots, LM(g_s) \rangle\]
+    where $g_1, \ldots, g_s$ are polynomials in $I$ such that $B = \{mdeg(g_1) , ..., mdeg(g_s)\}$. \ \\
+
+        \begin{center}
+            \begin{tikzpicture}[scale = 0.6]
+              \fill (0,4) circle (2pt) ;
+              \draw (0,4) -- (3,4);
+              \draw (0,4) -- (0,5);
+            
+              \fill (2,3) circle (2pt); 
+              \draw (2,3) -- (5,3);
+              \draw (2,3) -- (2,5);
+            
+              \fill (4,2) circle (2pt); 
+              \draw (4,2) -- (6,2);
+              \draw (4,2) -- (4,4); 
+              
+              \fill (5,5) circle (2pt); 
+              \fill (2.5,4.3) circle (2pt); 
+
+              \fill (2.5,3.5) circle (2pt); 
+              \fill (4.5,2.3) circle (2pt); 
+              
+            \end{tikzpicture}
+        \end{center}
+    \begin{flushright}
+      $\Box $
+    \end{flushright}
+\end{proposition}
+
+\begin{theorem}[title = Theorem 2.4.4 (Hilbert's Basis Theorem)]
+    Every ideal $I \subseteq k[x_1, \dots, x_n]$ is finitely generated, that is, $I = \langle g_1, \ldots, g_s \rangle $ for some \underline{finitely} many $g_1, \ldots, g_s \in I$. 
+
+    \paragraph{Proof:} For $I = \{0\}$ this is trivial, so assume $I \neq \{0\}$. Consider Polynomials $g_1, ..., g_s \in I \backslash \{0\}$ as in Proposition 2.4.3., that is, $\langle LM(I) \rangle = \langle LM(g_1), \ldots, LM(g_s) \rangle$ \\
+
+    \begin{center}
+        \begin{tikzpicture}[scale = 0.6]
+          \fill (0,4) circle (2pt) node[below left] {$mdeg(g_1)$};
+          \draw (0,4) -- (3,4);
+          \draw (0,4) -- (0,5);
+        
+          \fill (2,3) circle (2pt)node[below left] {$mdeg(g_2)$}; 
+          \draw (2,3) -- (5,3);
+          \draw (2,3) -- (2,5);
+        
+          \fill (4,2) circle (2pt) node[below left] {$mdeg(g_3)$}; 
+          \draw (4,2) -- (6,2);
+          \draw (4,2) -- (4,4); 
+         
+          \fill[kGreen] (5,4) circle (2pt) node[below right] {$mdeg(f), f \in I \backslash \{0\}$};
+        \end{tikzpicture}
+    \end{center}
+\end{theorem}
+
+\clearpage
+
+\begin{theorem}[title = Theorem 2.4.4 (Hilbert's Basis Theorem) continued]
+    We claim that $I = \langle g_1, \ldots, g_s \rangle$. The inclusion $\supseteq$ is clear, because $g_1, \ldots, g_s \in I$. So, we only need to verify the inlusion $ I \subseteq \langle g_1, \ldots, g_s \rangle$. We consider an arbitrary $f \in I$ and 
+    divide $f$ by $(g_1, \ldots, g_s)$  obtaining the representation
+    \[ f = g_1 \cdot q_1 + \ldots + g_s \cdot q_s  + r\] with the quotients $q_1, \ldots, q_s$ and the remainder $r$. It turns out that $r = 0$. For, if $r$ were not  zero, we would have 
+    \[0 \neq r = \underbrace{f}_{\in I} = (\underbrace{g_1}_{\in I} \cdot q_1 + \ldots + \underbrace{g_s}_{\in I} \cdot q_s) \in I \Rightarrow LM(r) \in \langle LM(I) \rangle = \langle LM(g_1), \ldots, LM(g_s) \rangle\]
+    $\Rightarrow LM(r)$ is divisible by some $LM(g_i)$ with $i = 1, \ldots, s$, but this contradicts the properties of the remainder in the multivariate long division algorithm. In the long division algorithm, only the 
+    terms not divisible by any of $LM(g_i)$ were transferes into the remainder. Contradiction! So, $r = 0 \quad \Rightarrow f = g_1 \cdot q_1 + \ldots + g_s \cdot q_s \in \langle  g_1, \ldots, g_s \rangle$. 
+      \begin{flushright}
+        $\Box $
+      \end{flushright}
+\end{theorem}
+
+% %TODOÖ Gordan's Paper hierzu raussuchen und verlinken 
+
+\begin{definition}[title = Definition 2.4.5]
+    For an ideal $I \subseteq k[x_1, \dots, x_n]$ with $I \neq \{0\}$, a set $G = \{g_1, \ldots, g_s\}$ of polynomials in $I$ is called a \textit{Gröbner basis} (or standard basis) of $I$ if $\langle LM(I) \rangle = \langle LM(g_1), \ldots, LM(g_s) \rangle$. \\
+    (By the theorem, $I = \langle G \rangle $). 
+\end{definition}
+
+\begin{corollary}[title = Corollary 2.4.6]
+    Every non-zero ideal of $k[x_1, \dots, x_n]$ has a Gröbner basis $G$ and is satisfies $I = \langle G  \rangle $.
+\end{corollary} 
+
+\begin{theorem}[title = Theorem 2.4.7 (ACC (The Ascending Chain Condition))]
+  Consider an  infinite ascending chain of ideals in $k[x_1, \dots, x_n]$. 
+  \[I_1 \subseteq I_2 \subseteq I_3 \subseteq I_4 \cdots\] 
+  Then there exists $N \in \mathbb{N}$ such that $I_N = I_{N+1} = I_{N+2} = \ldots$ . 
+  % Remember when you Relatives where like "oh i remember when you there that large" and at some pooint you stopped growing.... it's the same thing here! 
+  (That means every infinite ascending chain of ideals in $k[x_1, \dots, x_n]$ stabilizes.) 
+
+  \paragraph{Proof:}  Consider
+  \[ I := \bigcup_{j=1}^{\infty} I_j \]
+  This is also an ideal: 
+
+  \begin{itemize}
+    \item $0 \in I$, sinde $0 \in I_1$.  
+    \item $f, g \in I \Rightarrow f \in I_m$ and $g \in I_l$ for some $m, l \in \mathbb{N} \Rightarrow f, g \in I_{\max(m,l)} \Rightarrow f + g \in I_{\max(m,l)} \in I$ 
+    \item $f \in k[x_1, \dots, x_n], g \in I \Rightarrow g \i I_l$ for some $l \in \mathbb{N} \Rightarrow f \cdot g \in I_l \subseteq I$    
+  \end{itemize}
+
+  By 2.4.6 $I$ is finitely generated, so $I = \langle g_1, \ldots, g_s \rangle$ with $g_1, \ldots g_s \in I$. Pick $m_1, \ldots m_s \in \mathbb{N}$ with $g_1 \in I_{m_1}, \ldots, g_s \in I_{m_s}$. 
+  For $N = \max(m_1, \ldots, m_s)$.  we have $g_1, \ldots g_s \in I_N \Rightarrow I = \langle g_1, \ldots, g_s \rangle \subseteq I_N \Rightarrow I = I_N = I_{N+1} = I_{N+2} = \ldots$. 
+
+    \begin{flushright}
+      $\Box $
+    \end{flushright}
+\end{theorem} \ \\
+
+\begin{center}
+\begin{tabular}{c cc}
+
+    \textbf{\underline{Algebra}} & & \textbf{\underline{Geometry}} \\ 
+
+    Ideals & $\longleftrightarrow$ & Varieties \\ 
+    Finite Generations & $\longleftrightarrow$ & ???  \\
+    Gröbner Bases & $\longleftrightarrow$ & ??? \\
+\end{tabular}
+\end{center}
+\clearpage
+\begin{definition}[title = Definition 2.4.8]
+    For a (possibly infinite) set $F$ of polynomials from $k[x_1, \dots, x_n]$ we introduce the variety of $F$ by $V(F) = \{a \in k^n \mid f(a) = 0, \forall f \in F\}$.  
+\end{definition}
+  (We call it variety, but we actually need to justify the name.) 
+
+\begin{proposition}[title = Proposition 2.4.9]
+    For every subset $F$ of $k[x_1, \dots, x_n]$ there exist finitely many polynomials $f_1, \ldots, f_s \in F$ such that $V(F) = V(f_1, \ldots, f_s)$ to that $V(F)$ is indeed a variety.
+
+    % if you intersect infinitly many lines in one point, two will be enough to define the intersection.  --> bild 4 (blue comment)
+
+    \paragraph{Proof:}  $V(F) - V(I)$ with $I = \langle F \rangle $ the ideal generated by polynomials in $F$. We know, that $I$ is finitely generated. So, $I = \langle  g_1, \ldots, g_m \rangle $ with $g_1, \ldots, g_m \in \langle F \rangle $. 
+    Every polynomial among $g_1, \ldots, g_m$ is given as a finite weighted combination of some polynomials in $F$, so that one can make a \underline{finite} list $f_1, \ldots, f_s \in F$ of all polynomials that have been used to 
+    represent \[g_1, \ldots, g_m \Rightarrow I = \langle F \rangle = \langle g_1, \ldots, g_m \rangle  = \langle f_1, \ldots, f_s \rangle \Rightarrow V(F) = V(f_1, \ldots, f_s)\]
+
+    In fact, $\{f_1, \ldots, f_s\} \subseteq F$, which gives $V(F) \subseteq V(f_1, \ldots, f_s)$. 
+    
+    The other way around: if $a \in V(f_1, \ldots, f_s)$ then $f_1(a) = \ldots f_s(a) = 0$ and then every $f \in F$ satisfies 
+    $f(a) = 0$ because $f \in \langle f_1, \ldots, f_s \rangle $ which means $f = f_1 \cdot q_1 + \ldots  f_s \cdot q_s$ for some $q_1, \ldots, g_s \in k[x_1, \dots, x_n]$. 
+
+
+    \begin{flushright}
+      $\Box $
+    \end{flushright}
+\end{proposition}
+
+
+\subsection*{2.4.a Topological Perspective}
+\addcontentsline{toc}{subsection}{2.4.a Topological Perspective}
+\begin{center}
+  \textcolor{airforceblue}{LET'S HAVE A TOPOLOGICAL PERSPECTIVE ON THE ABOVE RESULT.} \\
+  \textcolor{airforceblue}{(SORT OF ANALYSIS FOR ALGEBRA) }
+\end{center} 
+
+\begin{definition}[title = Definition 2.4.10]
+    A topological space is a set $X$ together with a family $\tau$ of subsets of $X$ that satisfies the following properties: 
+    \begin{itemize}
+      \item[(a)] $\emptyset, X \in \tau$ 
+      \item[(b)] For every indexed famiy $(G_i)_{i  \in I}$ of set from $I$ (finite or infinite) one has $\bigcup_{i \in I} G \in \tau$. 
+      \item[(c)] For every choice of finitely many $G_1, \ldots, G_m \in \tau$ one has $G_1 \cap \ldots \cap G_m \in \tau$.
+    \end{itemize}
+    Sets $G \in I$ are called open and their complements $X \backslash G$ are called closed. \\
+
+    \begin{flushright} 
+      \footnotesize
+      \textcolor{gray}{(family = set of subsets)}
+      \normalsize
+    \end{flushright}
+\end{definition} 
+
+\begin{example}[title = Example 2.4.11 (Euclidean Topology on $\mathbb{R}^n$ and $\mathbb{C}^n$)]
+    We declare a set $U \subseteq \mathbb{R}^n$ to be open if around every  point $a \in G$ there exists a ball contained in $G$. 
+    \[\forall a \in G exists \epsilon \in \mathbb{R}_{> 0} \forall p \in G: ||a -p|| < \epsilon \Rightarrow p \in G\]
+    The respective family $\tau_{Eucl}$ of open sets in $\mathbb{R}^n$ is the Euclidean topology of $\mathbb{R}^n$. 
+
+    For $\mathbb{C}^n$, the same.
+\end{example}
+
+\hspace*{0.5cm}\textit{\textcolor{airforceblue}{The plan for the next weeks is to safe the world ... as usual.}}
+% % the plan for the next weeks is to safe the world.. as usual.
